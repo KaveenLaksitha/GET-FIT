@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Nutrition.macroCal">
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/blue"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingTop="7dp"
+            android:src="@drawable/arrow_back" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="64dp"
+            android:paddingTop="4dp"
+            android:text="@string/macro_cal"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:paddingTop="8dp"
+            android:src="@drawable/home" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/numInServSize"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="serving size in grams"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="90dp"
+        android:text="@string/txtMacroFoodName"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtInFood"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/txtMacroName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/txtServingSize"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInFood" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/btnFindMacro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numInServSize" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="274dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="43dp">
+
+            <TextView
+                android:id="@+id/txtEnergy"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:text="@string/txtEnergy"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtViewEnergy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/txtViewEnergy"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="43dp">
+
+            <TextView
+                android:id="@+id/txtFat"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:text="@string/txtFat"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtViewFat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/txtViewFat"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="43dp">
+
+            <TextView
+                android:id="@+id/txtCarbs"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:text="@string/txtCarbs"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtViewCarbs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/txtViewCarbs"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="43dp">
+
+            <TextView
+                android:id="@+id/txtFiber"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:text="@string/txtFiber"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtViewFiber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/txtViewFiber"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="43dp">
+
+            <TextView
+                android:id="@+id/txtProtein"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:text="@string/txtProtein"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtViewProtein"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/txtViewProtein"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="43dp">
+
+            <TextView
+                android:id="@+id/txtSodium"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:text="@string/txtSodium"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtViewSodium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/txtViewSodium"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="43dp">
+
+            <TextView
+                android:id="@+id/txtCholesterol"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:text="@string/txtCholesterol"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/txtViewCholesterol" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="43dp">
+
+            <TextView
+                android:id="@+id/textView43"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:text="@string/txtPotasium"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView44"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/txtViewPotasium" />
+        </TableRow>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="412dp"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:backgroundTint="#1ebeff"
+            android:drawableTop="@drawable/todo"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:backgroundTint="#1ebeff"
+            android:drawableTop="@drawable/fitness"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:backgroundTint="#1ebeff"
+            android:drawableTop="@drawable/nutrition"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:backgroundTint="#1ebeff"
+            android:drawableTop="@drawable/supplement"
+            app:cornerRadius="0dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
