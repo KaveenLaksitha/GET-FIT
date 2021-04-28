@@ -10,14 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GETFIT">
         <activity android:name=".Nutrition.macroCal" />
-        <activity android:name=".Nutrition.AddMacros" />
+        <activity android:name=".Nutrition.MainActivity" />
         <activity android:name=".Nutrition.NutritionNavigate" />
         <activity android:name=".Nutrition.AddMeal" />
         <activity android:name=".Nutrition.UpdateMeal" />
-        <activity android:name=".Nutrition.macros" />
+        <activity android:name=".Nutrition.AddMacros"
+            android:parentActivityName=".Nutrition.macros"/>
         <activity android:name=".Nutrition.MealList"/>
         <activity android:name=".Nutrition.ViewMeals"/>
-            <activity android:name=".Nutrition.MainActivity">
+            <activity android:name=".Nutrition.macros">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

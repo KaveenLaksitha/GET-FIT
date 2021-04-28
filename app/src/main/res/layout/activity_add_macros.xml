@@ -2,12 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/potasiumIn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Nutrition.AddMacros">
 
-    <RelativeLayout
+    <!--<RelativeLayout
 
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
@@ -41,19 +40,19 @@
             android:layout_alignParentEnd="true"
             android:paddingTop="8dp"
             android:src="@drawable/home" />
-    </RelativeLayout>
+    </RelativeLayout>-->
 
     <TableRow
         android:id="@+id/tableRow8"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
         android:layout_weight="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView3"
@@ -63,7 +62,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/txtInFoodName"
+            android:id="@+id/title_foodName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -75,7 +74,7 @@
     <TableRow
         android:id="@+id/tableRow6"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
@@ -92,7 +91,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/fatIn"
+            android:id="@+id/title_fat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -104,7 +103,7 @@
     <TableRow
         android:id="@+id/tableRow3"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
@@ -121,7 +120,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/proteinIn"
+            android:id="@+id/title_protein"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -132,7 +131,7 @@
     <TableRow
         android:id="@+id/tableRow7"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
@@ -149,7 +148,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/energyIn"
+            android:id="@+id/title_energy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -160,7 +159,7 @@
     <TableRow
         android:id="@+id/tableRow2"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
@@ -177,7 +176,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/sodiumIn"
+            android:id="@+id/title_sodium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -188,7 +187,7 @@
     <TableRow
         android:id="@+id/tableRow5"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
@@ -205,7 +204,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/carbIn"
+            android:id="@+id/title_carb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -216,7 +215,7 @@
     <TableRow
         android:id="@+id/tableRow4"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
@@ -233,7 +232,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/fiberIn"
+            android:id="@+id/title_fiber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -244,7 +243,7 @@
     <TableRow
         android:id="@+id/tableRow9"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
@@ -261,7 +260,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/editTextNumberDecimal2"
+            android:id="@+id/title_potasium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -290,7 +289,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/cholesterolIn"
+            android:id="@+id/title_cholesterol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -300,7 +299,7 @@
     </TableRow>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_add_macros"
         android:layout_width="140dp"
         android:layout_height="49dp"
         android:text="@string/btnAddMacros"
