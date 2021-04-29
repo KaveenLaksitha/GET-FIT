@@ -6,44 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Nutrition.MealList">
 
-    <RelativeLayout
-
-        android:id="@+id/relativeLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/blue"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:paddingTop="7dp"
-            android:src="@drawable/arrow_back" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="64dp"
-            android:paddingTop="6dp"
-            android:text="@string/view_meals_navigation"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="16dp"
-            android:paddingTop="8dp"
-            android:src="@drawable/home" />
-    </RelativeLayout>
-
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="312dp"
@@ -51,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"

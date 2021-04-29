@@ -26,7 +26,8 @@ public class DBHelper extends SQLiteOpenHelper {
             "protein" + " DECIMAL(5,2)," +
             "sodium" + " DECIMAL(5,2)," +
             "cholesterol" + " DECIMAL(5,2)," +
-            "Potasium" + " DECIMAL(5,2));";
+            "potasium" + " DECIMAL(5,2)," +
+            "calories" + " DECIMAL(5,2));";
 
 
 
@@ -43,7 +44,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    void addMacro(String foodName, String energy, String fat, String carb, String fiber, String protein, String sodium, String cholesterol, String potasium){
+    void addMacro(String foodName, String energy, String fat, String carb, String fiber, String protein, String sodium, String cholesterol, String potasium, String calories){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -56,6 +57,7 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put("sodium", sodium);
         cv.put("cholesterol", cholesterol);
         cv.put("potasium", potasium);
+        cv.put("calories", calories);
 
 
         long result = db.insert("macroDetails",null,cv);

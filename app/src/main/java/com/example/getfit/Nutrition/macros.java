@@ -12,7 +12,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class macros extends AppCompatActivity {
 
 
-    DBHelper db;
     FloatingActionButton nutrition_add_macro;
 
     @Override

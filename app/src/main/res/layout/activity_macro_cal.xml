@@ -8,43 +8,6 @@
     tools:context=".Nutrition.macroCal">
 
 
-    <RelativeLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/blue"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:paddingTop="7dp"
-            android:src="@drawable/arrow_back" />
-
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="64dp"
-            android:paddingTop="4dp"
-            android:text="@string/macro_cal"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
-            android:paddingTop="8dp"
-            android:src="@drawable/home" />
-    </RelativeLayout>
-
     <EditText
         android:id="@+id/numInServSize"
         android:layout_width="0dp"
@@ -280,7 +243,9 @@
         android:layout_width="412dp"
         android:layout_height="64dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/btn1"

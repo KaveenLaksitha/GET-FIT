@@ -41,4 +41,5 @@
     <string name="btnBMICal">BMI CALCULATOR</string>
     <string name="btnWeightCon">WEIGHT CONVERTOR</string>
     <string name="btnMacroCal">MACRO FINDER</string>
+    <string name="txtCalories">Calories</string>
 </resources>
