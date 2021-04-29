@@ -117,7 +117,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     Cursor readMacroTableData(){
-        String query = "SELECT Id,foodName FROM " + TABLE_NAME_MACRO;
+        String query = "SELECT * FROM " + TABLE_NAME_MACRO;
         SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor cursor = null;
