@@ -9,30 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GETFIT">
+        <activity android:name=".Nutrition.DeletePopUp"></activity>
         <activity android:name=".Nutrition.macroCal" />
         <activity android:name=".Nutrition.MainActivity" />
-        <activity android:name=".Nutrition.macros"
+        <activity
+            android:name=".Nutrition.macros"
             android:label="Added Macros"
-            android:parentActivityName=".Nutrition.NutritionNavigate"/>
-
-        <activity android:name=".Nutrition.AddMeal"
+            android:parentActivityName=".Nutrition.NutritionNavigate" />
+        <activity
+            android:name=".Nutrition.AddMeal"
             android:label="Add a Meal"
-            android:parentActivityName=".Nutrition.NutritionNavigate"/>
-
-        <activity android:name=".Nutrition.UpdateMeal"
+            android:parentActivityName=".Nutrition.NutritionNavigate" />
+        <activity
+            android:name=".Nutrition.UpdateMeal"
             android:label="Update a Meal"
-            android:parentActivityName=".Nutrition.NutritionNavigate"/>
-
-        <activity android:name=".Nutrition.AddMacros"
+            android:parentActivityName=".Nutrition.NutritionNavigate" />
+        <activity
+            android:name=".Nutrition.AddMacros"
             android:label="Add new Macro record"
-            android:parentActivityName=".Nutrition.macros"/>
-
-        <activity android:name=".Nutrition.MealList"
+            android:parentActivityName=".Nutrition.macros" />
+        <activity
+            android:name=".Nutrition.MealList"
             android:label="Added Meal Plans"
-            android:parentActivityName=".Nutrition.NutritionNavigate"/>
-
-        <activity android:name=".Nutrition.ViewMeals"/>
-
+            android:parentActivityName=".Nutrition.NutritionNavigate" />
+        <activity android:name=".Nutrition.ViewMeals" />
         <activity android:name=".Nutrition.NutritionNavigate">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

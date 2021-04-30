@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -64,12 +65,12 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    void addMeal(String mealID, String foodName, String bm01, String bm02, String bm03, String bm04, String lm01, String lm02, String lm03, String lm04, String dm01, String dm02, String dm03, String dm04){
+    void addMeal(String mealID, String mealName, String bm01, String bm02, String bm03, String bm04, String lm01, String lm02, String lm03, String lm04, String dm01, String dm02, String dm03, String dm04){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put("mealID", mealID);
-        cv.put("mealName", foodName);
+        cv.put("mealName", mealName);
         cv.put("bm01", bm01);
         cv.put("bm02", bm02);
         cv.put("bm03", bm03);
@@ -125,6 +126,58 @@ public class DBHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query,null);
         }
         return cursor;
+    }
+
+    Cursor readMealTableData(){
+        String query = "SELECT * FROM " + TABLE_NAME_MEAL;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+        }
+        return cursor;
+    }
+
+    void updateMealPlan(String mealID,String mealName, String bm01, String bm02, String bm03, String bm04, String lm01, String lm02, String lm03, String lm04, String dm01, String dm02, String dm03, String dm04){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put("mealName", mealName);
+        cv.put("bm01", bm01);
+        cv.put("bm02", bm02);
+        cv.put("bm03", bm03);
+        cv.put("bm04", bm04);
+        cv.put("lm01", lm01);
+        cv.put("lm02", lm02);
+        cv.put("lm03", lm03);
+        cv.put("lm04", lm04);
+        cv.put("dm01", dm01);
+        cv.put("dm02", dm02);
+        cv.put("dm03", dm03);
+        cv.put("dm04", dm04);
+
+        long result = db.update(TABLE_NAME_MEAL,cv,"mealID=?", new String[]{mealID});
+        if(result == -1){
+            Toast.makeText(context, "data update failed", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "data updated successfully", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void deleteMealRow(String mealID){
+
+
+        Log.d("data came",mealID);
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME_MEAL,"mealID=?",new String[]{mealID});
+
+        if(result == -1){
+            Toast.makeText(context, "data deletion failed", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "data deleted successfully", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

@@ -34,7 +34,7 @@ public class AddMeal extends AppCompatActivity {
         dm02 = findViewById(R.id.dm02);
         dm03 = findViewById(R.id.dm03);
         dm04 = findViewById(R.id.dm04);
-        nutrition_button_addMeal = findViewById(R.id.nutrition_button_addMeal);
+        nutrition_button_addMeal = findViewById(R.id.nutrition_button_updateMeal);
 
         nutrition_button_addMeal.setOnClickListener(new View.OnClickListener() {
 
@@ -44,8 +44,8 @@ public class AddMeal extends AppCompatActivity {
                 String inputId = mealID.getText().toString();
                 String inputName = mealName.getText().toString();
 
-                String idVal = "[a-zA-Z ] + [0-9]";
-                String nameVal = "[a-zA-Z ]";
+                //tring idVal = "[a-zA-Z ] + [0-9]";
+                String nameVal = "[a-zA-Z ]+";
 
                 if(inputId.isEmpty()){
                     mealID.requestFocus();
@@ -53,10 +53,10 @@ public class AddMeal extends AppCompatActivity {
                 }else if(inputName.isEmpty()){
                     mealName.requestFocus();
                     mealName.setError("Field cannot be empty");
-                }else if(inputId.matches(idVal)){
+                }/*else if(!inputId.matches(idVal)){
                     mealID.requestFocus();
                     mealID.setError("invalid characters!");
-                }else if(!inputName.matches(nameVal)){
+                }*/else if(!inputName.matches(nameVal)){
                     mealName.requestFocus();
                     mealName.setError("invalid characters!");
                 }

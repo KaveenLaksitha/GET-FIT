@@ -57,8 +57,8 @@ public class NutritionMacroAdapter extends RecyclerView.Adapter<NutritionMacroAd
         public MacroViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            id = itemView.findViewById(R.id.id_txt);
-            foodName = itemView.findViewById(R.id.foodName);
+            id = itemView.findViewById(R.id.R_mealID);
+            foodName = itemView.findViewById(R.id.R_mealName);
         }
 
     }
