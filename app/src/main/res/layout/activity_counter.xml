@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Workout.Counter">
+
+
+    <ImageView
+        android:id="@+id/counter_imgV1"
+        android:layout_width="365dp"
+        android:layout_height="242dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/StartBtn"
+        app:layout_constraintVertical_bias="0.402"
+        app:srcCompat="@drawable/img2" />
+
+    <TextView
+        android:id="@+id/counter_tv2"
+        android:layout_width="272dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="24dp"
+        android:text="00:00"
+        android:textAlignment="center"
+        android:textSize="52sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/counter_tv1" />
+
+    <Button
+        android:id="@+id/StartBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#56E618"
+        android:text="@string/startButton"
+        app:layout_constraintEnd_toStartOf="@+id/StopBtn"
+        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/counter_tv2" />
+
+    <Button
+        android:id="@+id/StopBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        android:backgroundTint="#E80909"
+        android:text="@string/StopButton"
+        app:layout_constraintBaseline_toBaselineOf="@+id/StartBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="399dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="610dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/todoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#1ebeff"
+            android:drawableTop="@drawable/todo"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#94e0ff"
+            android:drawableTop="@drawable/fitness"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#1ebeff"
+            android:drawableTop="@drawable/nutrition"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#1ebeff"
+            android:drawableTop="@drawable/supplement"
+            app:cornerRadius="0dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/counter_tv1"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/black_ops_one"
+        android:text="@string/TimeDownCounter"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

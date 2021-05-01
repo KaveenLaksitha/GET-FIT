@@ -9,7 +9,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GETFIT">
-        <activity android:name=".Workout.WorkoutDashBoard"></activity>
+        <activity android:name=".Workout.ViewExerciseImage"
+            android:label="WorkOut Image"
+            android:parentActivityName=".Workout.ModifyExercise"></activity>
+        <activity android:name=".Workout.ImageUpload"
+            android:label="Upload WorkOut Image"
+            android:parentActivityName=".Workout.AddExercise"/>
+        <activity
+            android:name=".Workout.AllExercises"
+            android:label="WorkOuts Listing"
+            android:parentActivityName=".Workout.WorkoutDashBoard" />
+        <activity
+            android:name=".Workout.ViewExercise"
+            android:label="Exercise"
+            android:parentActivityName=".Workout.WorkOuts" />
+        <activity
+            android:name=".Workout.WorkOuts"
+            android:label="WorkOut Packages">
+
+        </activity>
+        <activity
+            android:name=".Workout.ModifyExercise"
+            android:label="Modify Exercise"
+            android:parentActivityName=".Workout.AllExercises" />
+        <activity
+            android:name=".Workout.WeightConverter"
+            android:label="Weight Converter"
+            android:parentActivityName=".Workout.WorkoutDashBoard" />
+        <activity
+            android:name=".Workout.Counter"
+            android:label="Count Down Timer"
+            android:parentActivityName=".Workout.WorkOuts" />
+        <activity
+            android:name=".Workout.AddExercise"
+            android:label="Add Exercise"
+            android:parentActivityName=".Workout.WorkoutDashBoard" />
+        <activity
+            android:name=".Workout.WorkoutDashBoard"
+            android:label="WorkOut DashBoard" />
         <activity android:name=".Nutrition.macroCal" />
         <activity android:name=".Nutrition.AddMacros" />
         <activity android:name=".Nutrition.NutritionNavigate" />
@@ -18,7 +55,7 @@
         <activity android:name=".Nutrition.macros" />
         <activity android:name=".Nutrition.MealList" />
         <activity android:name=".Nutrition.ViewMeals" />
-        <activity android:name=".Nutrition.MainActivity">
+        <activity android:name=".Nutrition.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

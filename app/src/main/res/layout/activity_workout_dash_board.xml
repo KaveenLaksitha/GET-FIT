@@ -4,4 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Workout.WorkoutDashBoard"/>
+    tools:context=".Workout.WorkoutDashBoard">
+
+
+    <ImageView
+        android:id="@+id/bgImg1"
+        android:layout_width="519dp"
+        android:layout_height="795dp"
+        android:foregroundTint="#000000"
+        android:foregroundTintMode="src_over"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.412"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wobg3" />
+
+    <Button
+        android:id="@+id/btnAddExercise"
+        android:layout_width="298dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="160dp"
+        android:fontFamily="@font/armata"
+        android:onClick="moveToAddExercise"
+        android:text="@string/btnAddExercise"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnUpdateExercise"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btnUpdateExercise"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btndltExercise"
+        android:layout_width="298dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/armata"
+        android:onClick="moveToAllList"
+        android:text="@string/btnDeleteExercise"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnWeightConverter"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btnWeightConverter"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdateExercise" />
+
+    <Button
+        android:id="@+id/btnWeightConverter"
+        android:layout_width="298dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/armata"
+        android:onClick="moveToWeightConverter"
+        android:text="@string/btnWeightConverter"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btndltExercise" />
+
+    <Button
+        android:id="@+id/btnUpdateExercise"
+        android:layout_width="298dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/armata"
+        android:onClick="moveToAllList"
+        android:text="@string/btnUpdateExercise"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btndltExercise"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btndltExercise"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddExercise" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

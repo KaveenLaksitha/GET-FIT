@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Workout.WeightConverter">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="379dp"
+        android:layout_height="448dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="154dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="184dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <EditText
+            android:id="@+id/weight_etnd1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Enter the weight here"
+            android:inputType="numberDecimal"
+            android:textAlignment="center" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="247dp">
+
+            <RadioGroup
+                android:id="@+id/weight_radioGrp"
+                android:layout_width="356dp"
+                android:layout_height="225dp"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="7dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/weight_radioBtn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/kgToPounds"
+                    android:textAlignment="gravity"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/weight_radioBtn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/PoundsToKg"
+                    android:textAlignment="gravity"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/weight_radioBtn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/kgToStones"
+                    android:textAlignment="gravity"
+                    android:textSize="18sp" />
+            </RadioGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/weight_convertBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:onClick="calculateWeight"
+            android:text="@string/weightConvertBtn" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/weight_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/black_ops_one"
+        android:text="@string/weightConverter"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.887" />
+
+    <TextView
+        android:id="@+id/weight_tv2"
+        android:layout_width="327dp"
+        android:layout_height="43dp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <LinearLayout
+        android:layout_width="399dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="667dp"
+        android:layout_marginBottom="44dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/todoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#1ebeff"
+            android:drawableTop="@drawable/todo"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#94e0ff"
+            android:drawableTop="@drawable/fitness"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#1ebeff"
+            android:drawableTop="@drawable/nutrition"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#1ebeff"
+            android:drawableTop="@drawable/supplement"
+            app:cornerRadius="0dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
