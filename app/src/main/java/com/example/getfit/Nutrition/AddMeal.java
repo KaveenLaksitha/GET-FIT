@@ -44,8 +44,8 @@ public class AddMeal extends AppCompatActivity {
                 String inputId = mealID.getText().toString();
                 String inputName = mealName.getText().toString();
 
-                //tring idVal = "[a-zA-Z ] + [0-9]";
-                String nameVal = "[a-zA-Z ]+";
+                String idVal = "[M]+[0-9]+";
+                String nameVal = "[a-zA-Z,0-9]+";
 
                 if(inputId.isEmpty()){
                     mealID.requestFocus();
@@ -53,10 +53,10 @@ public class AddMeal extends AppCompatActivity {
                 }else if(inputName.isEmpty()){
                     mealName.requestFocus();
                     mealName.setError("Field cannot be empty");
-                }/*else if(!inputId.matches(idVal)){
+                }else if(!inputId.matches(idVal)){
                     mealID.requestFocus();
                     mealID.setError("invalid characters!");
-                }*/else if(!inputName.matches(nameVal)){
+                }else if(!inputName.matches(nameVal)){
                     mealName.requestFocus();
                     mealName.setError("invalid characters!");
                 }
@@ -79,10 +79,11 @@ public class AddMeal extends AppCompatActivity {
                             dm01.getText().toString().trim(),
                             dm01.getText().toString().trim());
 
-
+                    /*int retValue = getIntent().getIntExtra("retValue",0);
+                    if(retValue == -1) {*/
                     Intent intent = new Intent(AddMeal.this, MealList.class);
                     startActivity(intent);
-                    finish();
+                    //}
                 }
             }
         });

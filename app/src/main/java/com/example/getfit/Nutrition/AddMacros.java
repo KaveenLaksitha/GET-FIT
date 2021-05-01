@@ -39,18 +39,30 @@ public class AddMacros extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                String input = title_foodName.getText().toString();
+                String input_foodName = title_foodName.getText().toString();
+                String input_energy = title_energy.getText().toString();
+                String input_fat = title_fat.getText().toString();
+                String input_carb = title_carb.getText().toString();
+                String input_fiber = title_fiber.getText().toString();
+                String input_protein = title_protein.getText().toString();
+                String input_sodium = title_sodium.getText().toString();
+                String input_cholesterol = title_cholesterol.getText().toString();
+                String input_potasium = title_potasium.getText().toString();
+                String input_calories = title_calories.getText().toString();
+
+                boolean isInputsEmpty = input_energy.isEmpty() || input_fat.isEmpty() || input_carb.isEmpty() || input_fiber.isEmpty() || input_protein.isEmpty() || input_sodium.isEmpty() || input_cholesterol.isEmpty() || input_potasium.isEmpty() || input_calories.isEmpty();
 
                 String nameVal = "[a-zA-Z ]+";;
 
-                if(input.isEmpty()){
+                if(input_foodName.isEmpty()){
                     title_foodName.requestFocus();
                     title_foodName.setError("Field cannot be empty");
-                }else if(!input.matches(nameVal)){
+                }else if(!input_foodName.matches(nameVal)){
                     title_foodName.requestFocus();
                     title_foodName.setError("invalid characters!");
-                }
-                else {
+                }else if(isInputsEmpty == true){
+                    Toast.makeText(getApplicationContext(),"please fill all the fields!",Toast.LENGTH_SHORT).show();
+                }else {
 
                     DBHelper dbHelper = new DBHelper(AddMacros.this);
                     dbHelper.addMacro(title_foodName.getText().toString().trim(),

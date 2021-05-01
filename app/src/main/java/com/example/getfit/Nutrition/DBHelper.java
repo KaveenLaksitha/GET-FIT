@@ -2,6 +2,7 @@ package com.example.getfit.Nutrition;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -90,6 +91,9 @@ public class DBHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "data insertion failed", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(context, "added successfully", Toast.LENGTH_SHORT).show();
+            /*Intent intent = new Intent(context,AddMeal.class);
+            intent.putExtra("retValue", result);
+            context.sendBroadcast(intent);*/
         }
     }
 

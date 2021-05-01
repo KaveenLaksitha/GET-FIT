@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GETFIT">
         <activity android:name=".Nutrition.DeletePopUp"></activity>
-        <activity android:name=".Nutrition.macroCal" />
-        <activity android:name=".Nutrition.MainActivity" />
+        <activity android:name=".Nutrition.macroCal"
+            android:label="Macro Finder"
+            android:parentActivityName=".Nutrition.MainActivity"/>
+
+        <activity android:name=".Nutrition.NutritionNavigate" />
         <activity
             android:name=".Nutrition.macros"
             android:label="Added Macros"
@@ -33,7 +36,7 @@
             android:label="Added Meal Plans"
             android:parentActivityName=".Nutrition.NutritionNavigate" />
         <activity android:name=".Nutrition.ViewMeals" />
-        <activity android:name=".Nutrition.NutritionNavigate">
+        <activity android:name=".Nutrition.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
