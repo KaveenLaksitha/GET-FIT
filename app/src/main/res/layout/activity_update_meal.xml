@@ -6,50 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".Nutrition.UpdateMeal">
 
-    <RelativeLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/blue"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:paddingTop="7dp"
-            android:src="@drawable/arrow_back" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="64dp"
-            android:paddingTop="6dp"
-            android:text="@string/update_meal_navigation"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="16dp"
-            android:paddingTop="8dp"
-            android:src="@drawable/logout_line" />
-    </RelativeLayout>
-
 
     <EditText
         android:id="@+id/mealID"
         android:layout_width="109dp"
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="ID"
         android:inputType="textPersonName"
@@ -68,11 +31,11 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName17"
+        android:id="@+id/bm01"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="meal name"
         android:inputType="textPersonName"
@@ -80,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName24"
+        android:id="@+id/bm03"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -89,14 +52,14 @@
         android:hint="meal name"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName17" />
+        app:layout_constraintTop_toBottomOf="@+id/bm01" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName26"
+        android:id="@+id/lm01"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="meal name"
         android:inputType="textPersonName"
@@ -104,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName29"
+        android:id="@+id/lm03"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -112,14 +75,14 @@
         android:hint="meal name"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName26" />
+        app:layout_constraintTop_toBottomOf="@+id/lm01" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName30"
+        android:id="@+id/dm01"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="meal name"
         android:inputType="textPersonName"
@@ -127,19 +90,19 @@
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName32"
+        android:id="@+id/dm02"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="meal name"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPersonName30"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dm01"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName30" />
+        app:layout_constraintStart_toEndOf="@+id/dm01" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName33"
+        android:id="@+id/dm03"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -148,68 +111,68 @@
         android:hint="meal name"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName30" />
+        app:layout_constraintTop_toBottomOf="@+id/dm01" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName34"
+        android:id="@+id/dm04"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="meal name"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPersonName33"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dm03"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName33" />
+        app:layout_constraintStart_toEndOf="@+id/dm03" />
 
 
     <EditText
-        android:id="@+id/editTextTextPersonName31"
+        android:id="@+id/lm04"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="meal name"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPersonName29"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lm03"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName29" />
+        app:layout_constraintStart_toEndOf="@+id/lm03" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName28"
+        android:id="@+id/lm02"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="meal name"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPersonName26"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lm01"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName26" />
+        app:layout_constraintStart_toEndOf="@+id/lm01" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName25"
+        android:id="@+id/bm04"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="meal name"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPersonName24"
+        app:layout_constraintBaseline_toBaselineOf="@+id/bm03"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName24" />
+        app:layout_constraintStart_toEndOf="@+id/bm03" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName19"
+        android:id="@+id/bm02"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="meal name"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPersonName17"
+        app:layout_constraintBaseline_toBaselineOf="@+id/bm01"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName17" />
+        app:layout_constraintStart_toEndOf="@+id/bm01" />
 
     <TextView
         android:id="@+id/textView17"
@@ -221,7 +184,7 @@
         android:text="Breakfast"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName17"
+        app:layout_constraintBottom_toTopOf="@+id/bm01"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mealID" />
 
@@ -230,27 +193,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="Lunch"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName24" />
+        app:layout_constraintTop_toBottomOf="@+id/bm03" />
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="Dinner"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName29" />
+        app:layout_constraintTop_toBottomOf="@+id/lm03" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/nutrition_button_updateMeal"
         android:layout_width="230dp"
         android:layout_height="44dp"
         android:text="@string/btnUpdate"
@@ -258,7 +221,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName33" />
+        app:layout_constraintTop_toBottomOf="@+id/dm03" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/mealName" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/bm04"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/lm04"
+        tools:layout_editor_absoluteX="1dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

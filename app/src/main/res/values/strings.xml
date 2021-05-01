@@ -41,6 +41,7 @@
     <string name="btnBMICal">BMI CALCULATOR</string>
     <string name="btnWeightCon">WEIGHT CONVERTOR</string>
     <string name="btnMacroCal">MACRO FINDER</string>
+
     <string name="btn7">Add Supplement</string>
     <string name="btn8">Update Supplement</string>
     <string name="btn9">Delete Supplement</string>
@@ -98,4 +99,9 @@
     <string name="bmi">BMI Calculator</string>
     <string name="update_button1">Update</string>
     <string name="delete_button">Delete</string>
+    <string name="txtCalories">Calories</string>
+    <string name="mealID">Meal ID</string>
+    <string name="meal_Name">Meal Name</string>
+    <string name="nutrition_delete_confirm">Do you want to delete this Meal Plan?</string>
+
 </resources>

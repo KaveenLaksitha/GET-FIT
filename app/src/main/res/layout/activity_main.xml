@@ -11,11 +11,12 @@
         android:layout_width="419dp"
         android:layout_height="713dp"
         android:foreground="@drawable/edgar_chaparro_shfo3woggtu_unsplash"
-        app:srcCompat="@drawable/anastase_maragos_d44mxojsoqe_unsplash"
-        tools:layout_editor_absoluteX="-8dp"
-        tools:layout_editor_absoluteY="30dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/anastase_maragos_d44mxojsoqe_unsplash" />
 
-    <RelativeLayout
+    <!--<RelativeLayout
 
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
@@ -50,10 +51,10 @@
             android:layout_alignParentEnd="true"
             android:paddingTop="9dp"
             android:src="@drawable/logout_line" />
-    </RelativeLayout>
+    </RelativeLayout>-->
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnBMICal"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
@@ -62,7 +63,32 @@
         android:text="@string/btnBMICal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnWeightCon"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/btnWeightCon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBMICal" />
+
+    <Button
+        android:id="@+id/btnMacroCal"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/btnMacroCal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnWeightCon" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -109,30 +135,5 @@
             android:drawableTop="@drawable/supplement"
             app:cornerRadius="0dp" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/btnWeightCon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/btnMacroCal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
