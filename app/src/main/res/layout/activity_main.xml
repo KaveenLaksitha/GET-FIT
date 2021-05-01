@@ -13,7 +13,8 @@
         android:foreground="@drawable/edgar_chaparro_shfo3woggtu_unsplash"
         app:srcCompat="@drawable/anastase_maragos_d44mxojsoqe_unsplash"
         tools:layout_editor_absoluteX="-8dp"
-        tools:layout_editor_absoluteY="30dp" />
+        tools:layout_editor_absoluteY="30dp"
+        tools:ignore="MissingConstraints" />
 
     <RelativeLayout
 

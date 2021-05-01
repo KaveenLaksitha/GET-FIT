@@ -41,4 +41,40 @@
     <string name="btnBMICal">BMI CALCULATOR</string>
     <string name="btnWeightCon">WEIGHT CONVERTOR</string>
     <string name="btnMacroCal">MACRO FINDER</string>
+
+    <string name="SignUptxtName">User Name</string>
+    <string name="SignUptxtEmail">Email</string>
+    <string name="SignUptxtPassword">Password</string>
+    <string name="SignUptxtGender">Gender</string>
+    <string name="SignUptxtHeight">Height</string>
+    <string name="SignUptxtWeight">Weight</string>
+    <string name="SignUptxtAge">Age</string>
+    <string name="SignUpName" />
+    <string name="SignUpEmail" />
+    <string name="SignUpPassword" />
+    <string name="SignUpGender" />
+    <string name="SignUpbtnSignUp">SIGN UP</string>
+    <string name="SignUpbtnSignIn">SIGN IN</string>
+    <string name="SignUp">Sign Up</string>
+    <string name="BMIResult">Result</string>
+    <string name="txtHealthyBMI">Healthy BMI</string>
+    <string name="txtHealthyWeight">Healthy Weight</string>
+    <string name="txtResultHbmi" />
+    <string name="txtResultHweight" />
+    <string name="ResultBMI">BMI</string>
+    <string name="UPtxt">User Profile</string>
+    <string name="UPbtnUpdate">Update Details</string>
+    <string name="UPtxtDelete">Delete Account</string>
+    <string name="todotxt">To Do List</string>
+    <string name="SignInuser_name">User Name</string>
+    <string name="SignInPassword">Password</string>
+    <string name="SignInpassword">Password</string>
+    <string name="SignInbtnSignIn">SIGN IN</string>
+    <string name="SignIntxtNewUser">New User?</string>
+    <string name="SignInNewUserSignUp">Sign Up</string>
+    <string name="SignIntxtForgotpass">Forgot your password?</string>
+    <string name="SignInpasswordReset">Reset</string>
+    <string name="txtList_name">To Do List</string>
+    <string name="SignIn">SIGN IN</string>
+
 </resources>
