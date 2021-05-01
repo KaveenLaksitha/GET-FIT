@@ -39,6 +39,47 @@
     <string name="view_meals_navigation">Meal Plans</string>
     <string name="macros_navigation">Added Macros</string>
     <string name="btnBMICal">BMI CALCULATOR</string>
+
     <string name="btnWeightCon">WEIGHT CONVERTOR</string>
     <string name="btnMacroCal">MACRO FINDER</string>
+    <string name="btnAddExercise">ADD EXERCISE</string>
+    <string name="btnDeleteExercise">DELETE EXERCISE</string>
+    <string name="btnWeightConverter">WEIGHT CONVERTER</string>
+    <string name="btnUpdateExercise">UPDATE EXERCISE</string>
+    <string name="WorkOutId">WorkOut Id</string>
+    <string name="WorkOutName">WorkOut Name</string>
+    <string name="WorkOutPackageType">Package Type</string>
+    <string name="WorkOutCalorieBurnt">Calorie Burnt</string>
+    <string name="WorkOutDuration">Duration</string>
+    <string name="WorkOutsteps">Steps</string>
+    <string name="WorkOutminutes">min</string>
+    <string name="WorkOutAddExercise">ADD EXERCISE</string>
+    <string name="WorkOutAddBtn">ADD</string>
+    <string name="startButton">START</string>
+    <string name="StopButton">STOP</string>
+    <string name="TimeDownCounter">TIME DOWN COUNTER</string>
+    <string name="kgToPounds">Kilograms to Pounds</string>
+    <string name="PoundsToKg">Pounds To Kilograms</string>
+    <string name="kgToStones">Kilograms To Stones</string>
+    <string name="weightConvertBtn">Convert</string>
+    <string name="weightConverter">WEIGHT CONVERTER</string>
+    <string name="ModifyExercise">MODIFY EXERCISE</string>
+    <string name="Workoutdeletebtn">DELETE</string>
+    <string name="WorkOutupdatebtn">UPDATE</string>
+    <string name="WorkOutShowbtn">VIEW</string>
+    <string-array name="Spinner_Item">
+        <item>Muscle-Gain</item>
+        <item>Fat-Loss</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fatLoss">FAT-LOSS</string>
+    <string name="muscleGain">MUSCLE-GAIN</string>
+    <string name="ViewExeHint1">Enter No of Repeats</string>
+    <string name="calorieBurnOutBtn">CALORIES BURN OUT</string>
+    <string name="WorkOutTimePeriod">Time Period</string>
+    <string name="WorkOutStart">START</string>
+    <string name="MuscleGainBtn">MUSCLE GAIN WORKOUT</string>
+    <string name="FatLossBtn">FAT-LOSS WORKOUT</string>
+    <string name="WOpackages">WORK-OUT PACKAGES</string>
 </resources>
