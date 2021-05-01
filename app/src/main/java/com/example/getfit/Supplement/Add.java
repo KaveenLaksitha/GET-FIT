@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.getfit.R;
 
-public class SupplementDashboard extends AppCompatActivity {
+public class Add extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_supplement_dashboard);
+        setContentView(R.layout.activity_add);
     }
 }

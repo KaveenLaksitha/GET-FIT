@@ -9,7 +9,55 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GETFIT">
-        <activity android:name=".Supplement.SupplementDashboard"></activity>
+
+        <activity android:name=".Supplement.UpdateSupplement"
+            android:label="Update Supplement"
+            android:parentActivityName=".Supplement.SupDashboard">
+        </activity>
+
+        <activity android:name=".Supplement.ViewSupplement"
+            android:label="View Supplement"
+            android:parentActivityName=".Supplement.SupDashboard">
+
+        </activity>
+
+        <activity android:name=".Supplement.BMICalculator"
+            android:label="BMI Calculator"
+            android:parentActivityName=".Nutrition.MainActivity">
+
+
+
+        </activity>
+
+
+        <activity android:name=".Supplement.SupDashboard" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+
+        <activity android:name=".Supplement.AddSupplement"
+            android:label="Add Supplement"
+            android:parentActivityName=".Supplement.SupDashboard">
+
+
+
+        </activity>
+
+
+
+
+
+
+
+
+
+
+
         <activity android:name=".Nutrition.macroCal" />
         <activity android:name=".Nutrition.AddMacros" />
         <activity android:name=".Nutrition.NutritionNavigate" />
@@ -18,13 +66,7 @@
         <activity android:name=".Nutrition.macros" />
         <activity android:name=".Nutrition.MealList" />
         <activity android:name=".Nutrition.ViewMeals" />
-        <activity android:name=".Nutrition.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Nutrition.MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

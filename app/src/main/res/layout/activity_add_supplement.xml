@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Supplement.AddSupplement">
+
+
+    <TableRow
+        android:id="@+id/tble8"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="60dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/tble6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtsupname"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="@string/txtsupname"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="18sp" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tble6"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="64dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tble8">
+
+        <TextView
+            android:id="@+id/txtsupprice"
+            android:layout_width="141dp"
+            android:layout_height="35dp"
+            android:text="@string/txtsupprice"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/price_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textSize="18sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tble3"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="64dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tble6">
+
+        <TextView
+            android:id="@+id/txtsupdesc"
+            android:layout_width="141dp"
+            android:layout_height="35dp"
+            android:text="@string/txtsupdesc"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/description_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textSize="18sp" />
+    </TableRow>
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="140dp"
+        android:layout_height="49dp"
+        android:text="@string/btnadd"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tble3" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
