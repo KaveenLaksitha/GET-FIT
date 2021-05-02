@@ -72,6 +72,9 @@ public class SignUp extends AppCompatActivity {
                             if(insert == true){
                                 Toast.makeText(SignUp.this, "Welcome To The GET FIT", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), BMI.class);
+                                intent.putExtra("height",height.getText().toString());
+                                intent.putExtra("weight",weight.getText().toString());
+                                intent.putExtra("age",age.getText().toString());
                                 startActivity(intent);
                             }else{
                                 Toast.makeText(SignUp.this, "Failed to Register", Toast.LENGTH_SHORT).show();
