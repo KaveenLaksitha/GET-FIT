@@ -85,7 +85,6 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put("dm03", dm03);
         cv.put("dm04", dm04);
 
-
         long result = db.insert(TABLE_NAME_MEAL,null,cv);
         if(result == -1){
             Toast.makeText(context, "data insertion failed", Toast.LENGTH_SHORT).show();
@@ -132,6 +131,20 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    Cursor SearchMacro(String foodName){
+
+        String query = "SELECT * FROM " + TABLE_NAME_MACRO + " WHERE foodName LIKE " + "'" + foodName + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+        }if (cursor.getCount() == 0){
+            Toast.makeText(context,"Sorry no data found!",Toast.LENGTH_SHORT).show();
+        }
+        return cursor;
+    }
+
     Cursor readMealTableData(){
         String query = "SELECT * FROM " + TABLE_NAME_MEAL;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -169,6 +182,10 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    void readMealRow(String mealID){
+
+    }
+
     void deleteMealRow(String mealID){
 
 
@@ -187,9 +204,10 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+        onCreate(db);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_MACRO);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_MEAL);
-        onCreate(db);
+
     }
 
 }

@@ -3,6 +3,7 @@ package com.example.getfit.Nutrition;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -63,6 +64,7 @@ public class AddMeal extends AppCompatActivity {
                 else {
 
                     DBHelper dbHelper = new DBHelper(AddMeal.this);
+                    SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
                     dbHelper.addMeal(
                             mealID.getText().toString().trim(),
                             mealName.getText().toString().trim(),

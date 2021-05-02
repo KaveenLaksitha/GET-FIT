@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ public class macroCal extends AppCompatActivity {
     Button btnFindMacro;
     DBHelper dbHelper;
     String foodName;
+    Float servings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,24 +47,35 @@ public class macroCal extends AppCompatActivity {
             public void onClick(View v) {
 
                 foodName = txtInFood.getText().toString().trim();
+                servings = Float.valueOf(numInServSize.getText().toString().trim());
+                Log.d("inputed string", foodName);
                 dbHelper = new DBHelper(getApplicationContext());
                 SQLiteDatabase db = dbHelper.getReadableDatabase();
-                /*Cursor cursor = ;
+                Cursor cursor = dbHelper.SearchMacro(foodName);
                 if(cursor.moveToFirst())
                 {
-                    String MOBILE=cursor.getString(0);
-                    String EMALL=cursor.getString(1);
-                    txtViewEnergy.setText();
-                    txtViewFat.setText();
-                    txtViewCarbs.setText();
-                    txtViewFiber.setText();
-                    txtViewProtein.setText();
-                    txtViewSodium.setText();
-                    txtViewCholesterol.setText();
-                    txtViewPotasium.setText();
-                    txtViewCalories.setText();
 
-                }*/
+                    Float energyVal = Float.valueOf(cursor.getString(2))/150 * servings;
+                    Float fatVal = Float.valueOf(cursor.getString(3))/150 * servings;
+                    Float carbyVal = Float.valueOf(cursor.getString(4))/150 * servings;
+                    Float fiberVal = Float.valueOf(cursor.getString(5))/150 * servings;
+                    Float proteinVal = Float.valueOf(cursor.getString(6))/150 * servings;
+                    Float sodiumVal = Float.valueOf(cursor.getString(7))/150 * servings;
+                    Float cholesterolVal = Float.valueOf(cursor.getString(8))/150 * servings;
+                    Float potasiumVal = Float.valueOf(cursor.getString(9))/150 * servings;
+                    Float caloriesVal = Float.valueOf(cursor.getString(10))/150 * servings;
+
+                    txtViewEnergy.setText(String.valueOf(energyVal));
+                    txtViewFat.setText(String.valueOf(fatVal));
+                    txtViewCarbs.setText(String.valueOf(carbyVal));
+                    txtViewFiber.setText(String.valueOf(fiberVal));
+                    txtViewProtein.setText(String.valueOf(proteinVal));
+                    txtViewSodium.setText(String.valueOf(sodiumVal));
+                    txtViewCholesterol.setText(String.valueOf(cholesterolVal));
+                    txtViewPotasium.setText(String.valueOf(potasiumVal));
+                    txtViewCalories.setText(String.valueOf(caloriesVal));
+
+                }
 
             }
         });
