@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.example.getfit.R;
 import com.example.getfit.Supplement.BMICalculator;
+import com.example.getfit.Workout.WeightConverter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         btnWeightCon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, WeightConverter.class);
+                startActivity(intent);
             }
         });
 

@@ -40,11 +40,7 @@
         <activity
             android:name=".ToDo_List.SignUp"
             android:label="Sign Up">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Supplement.UpdateSupplement"
             android:label="Update Supplement"
@@ -106,8 +102,8 @@
         <activity
             android:name=".Workout.WorkoutDashBoard"
             android:label="WorkOut DashBoard" />
-        <activity android:name=".Nutrition.macroCal" />
-        <activity android:name=".Nutrition.AddMacros" />
+
+
         <activity android:name=".Nutrition.NutritionNavigate" />
         <activity
             android:name=".Nutrition.macros"
@@ -131,6 +127,12 @@
             android:parentActivityName=".Nutrition.NutritionNavigate" />
         <activity android:name=".Nutrition.ViewMeals" />
         <activity android:name=".Nutrition.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
         <activity android:name=".Supplement.AddSupplement"
             android:label="Add Supplement"
