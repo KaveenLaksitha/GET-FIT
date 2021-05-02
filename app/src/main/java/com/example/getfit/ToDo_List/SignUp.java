@@ -44,10 +44,9 @@ public class SignUp extends AppCompatActivity {
                 String ema = email.getText().toString();
                 String pass = password.getText().toString();
                 String gen = gender.getText().toString();
-                float hei = Float.valueOf(height.getText().toString());
-                float wei = Float.valueOf(weight.getText().toString());
-                int ag = Integer.valueOf(age.getText().toString());
-
+                String hei = height.getText().toString();
+                String wei = weight.getText().toString();
+                String ag = age.getText().toString();
                 if(user.equals("") || ema.equals("") || pass.equals("") || gen.equals("")){
                     username.requestFocus();
                     username.setError("Field cannot be empty");
@@ -68,7 +67,10 @@ public class SignUp extends AppCompatActivity {
                     if(pass.equals((pass))){
                         Boolean checkuser = userManagementDBHelper.checkusername(user);
                         if(checkuser == false){
-                            Boolean insert = userManagementDBHelper.insertData(user,ema,pass,gen,hei,wei,ag);
+                            float heit = Float.valueOf(height.getText().toString());
+                            float weit = Float.valueOf(weight.getText().toString());
+                            int agt = Integer.valueOf(age.getText().toString());
+                            Boolean insert = userManagementDBHelper.insertData(user,ema,pass,gen,heit,weit,agt);
                             if(insert == true){
                                 Toast.makeText(SignUp.this, "Welcome To The GET FIT", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), BMI.class);
