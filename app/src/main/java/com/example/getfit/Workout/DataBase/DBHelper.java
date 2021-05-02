@@ -25,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
     Context context;
     private ByteArrayOutputStream objectByteArrayOutputStream;
     private byte[] imageInByte;
-    public static final String DATABASE_NAME="WorkOutPackages.db";
+    public static final String DATABASE_NAME="GETFIT.db";
 
     String createTableQuery ="CREATE TABLE ImageInfo (imageName TEXT UNIQUE NOT NULL"+",image BLOB)";
 

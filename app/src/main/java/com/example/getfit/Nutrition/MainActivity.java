@@ -9,11 +9,14 @@ import android.widget.Button;
 
 import com.example.getfit.R;
 import com.example.getfit.Supplement.BMICalculator;
+import com.example.getfit.Supplement.ViewSupplement;
+import com.example.getfit.ToDo_List.To_Do_List;
 import com.example.getfit.Workout.WeightConverter;
+import com.example.getfit.Workout.WorkOuts;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnBMICal,btnWeightCon,btnMacroCal;
+    Button btnBMICal,btnWeightCon,btnMacroCal,navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
         btnBMICal = findViewById(R.id.btnBMICal);
         btnWeightCon = findViewById(R.id.btnWeightCon);
         btnMacroCal = findViewById(R.id.btnMacroCal);
+
+        navigate_todo = findViewById(R.id.navigate_todo);
+        navigate_workout = findViewById(R.id.navigate_workout);
+        navigate_nutrition = findViewById(R.id.navigate_nutrition);
+        navigate_supplement = findViewById(R.id.navigate_supplement);
 
         //redirects to BMI calculator page
         btnBMICal.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +58,46 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(MainActivity.this,macroCal.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, To_Do_List.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, WorkOuts.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this,ViewMeals.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_supplement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, ViewSupplement.class);
                 startActivity(intent);
 
             }

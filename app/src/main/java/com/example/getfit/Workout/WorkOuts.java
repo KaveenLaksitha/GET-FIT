@@ -23,9 +23,9 @@ public class WorkOuts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_outs);
 
-        btn3 = findViewById(R.id.btn3);
-        btn4 = findViewById(R.id.btn4);
-        todoBtn =findViewById(R.id.todoBtn);
+        btn3 = findViewById(R.id.navigate_nutrition);
+        btn4 = findViewById(R.id.navigate_supplement);
+        todoBtn =findViewById(R.id.navigate_todo);
     }
 
     protected void onResume() {

@@ -36,7 +36,7 @@
                     app:cornerRadius="0dp" />
 
                 <Button
-                    android:id="@+id/btn2"
+                    android:id="@+id/navigate_workout"
                     android:layout_width="wrap_content"
                     android:layout_height="70dp"
                     android:layout_weight="1"
@@ -45,7 +45,7 @@
                     app:cornerRadius="0dp" />
 
                 <Button
-                    android:id="@+id/btn3"
+                    android:id="@+id/navigate_nutrition"
                     android:layout_width="wrap_content"
                     android:layout_height="70dp"
                     android:layout_weight="1"
@@ -54,7 +54,7 @@
                     app:cornerRadius="0dp" />
 
                 <Button
-                    android:id="@+id/btn4"
+                    android:id="@+id/navigate_supplement"
                     android:layout_width="wrap_content"
                     android:layout_height="70dp"
                     android:layout_weight="1"
