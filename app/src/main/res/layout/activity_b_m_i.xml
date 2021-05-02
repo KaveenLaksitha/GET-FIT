@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ToDo_List.BMI">
+
+    <TextView
+        android:id="@+id/txtHealthyWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="90dp"
+        android:text="@string/txtHealthyWeight"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHealthyBMI" />
+
+
+    <TextView
+        android:id="@+id/ResultBMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/ResultBMI"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/SignUptxtHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/SignUptxtHeight"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/SignUptxtWeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ResultBMI"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/SignUptxtWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/SignUptxtWeight"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/SignUptxtAge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUptxtHeight" />
+
+    <TextView
+        android:id="@+id/SignUptxtAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/SignUptxtAge"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUptxtWeight" />
+
+    <EditText
+        android:id="@+id/SignUpHeight"
+        android:layout_width="141dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="64dp"
+        android:ems="10"
+        android:hint="                                      cm"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/SignUptxtHeight"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/SignUpWeight"
+        android:layout_width="141dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="64dp"
+        android:ems="10"
+        android:hint="                                       Kg"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/SignUptxtWeight"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/SignUpAge"
+        android:layout_width="141dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="64dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/SignUptxtAge"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/BMIResult"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="80dp"
+        android:text="@string/BMIResult"
+        android:textColor="#00BCD4"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtResultHbmi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/SignUpAge" />
+
+    <TextView
+        android:id="@+id/txtHealthyBMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/txtHealthyBMI"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtHealthyWeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BMIResult" />
+
+    <TextView
+        android:id="@+id/txtResultHbmi"
+        android:layout_width="210dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="36dp"
+        android:text="@string/txtResultHbmi"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtHealthyBMI"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtResultHweight"
+        android:layout_width="210dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="36dp"
+        android:text="@string/txtResultHweight"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtHealthyWeight"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="70dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="63dp"
+        android:onClick="sub"
+        app:layout_constraintBottom_toTopOf="@+id/txtHealthyBMI"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUptxtAge"
+        app:layout_constraintVertical_bias="0.51"
+        app:srcCompat="@drawable/ic_baseline_calculate_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
