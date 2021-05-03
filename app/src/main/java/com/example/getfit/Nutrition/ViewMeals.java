@@ -20,13 +20,13 @@ import java.util.ArrayList;
 
 public class ViewMeals extends AppCompatActivity {
 
-    Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
+    Button navigate_todo,navigate_workout,navigate_supplement;
 
     RecyclerView recyclerView;
 
     DBHelper db ;
     ArrayList<String> mealID, mealName;
-    UserMealsAdapter customAdapater;
+    UserMealsAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,6 @@ public class ViewMeals extends AppCompatActivity {
 
         navigate_todo = findViewById(R.id.navigate_todo);
         navigate_workout = findViewById(R.id.navigate_workout);
-        navigate_nutrition = findViewById(R.id.navigate_nutrition);
         navigate_supplement = findViewById(R.id.navigate_supplement);
 
         recyclerView = findViewById(R.id.user_meals_recycler);
@@ -46,8 +45,8 @@ public class ViewMeals extends AppCompatActivity {
 
         storeMealsInArray();
 
-        customAdapater = new UserMealsAdapter(ViewMeals.this,mealID,mealName);
-        recyclerView.setAdapter(customAdapater);
+        customAdapter = new UserMealsAdapter(ViewMeals.this,mealID,mealName);
+        recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ViewMeals.this));
 
         //bottom navigation buttons on click listners
@@ -71,16 +70,6 @@ public class ViewMeals extends AppCompatActivity {
             }
         });
 
-        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(ViewMeals.this,ViewMeals.class);
-                startActivity(intent);
-
-            }
-        });
-
         navigate_supplement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +81,7 @@ public class ViewMeals extends AppCompatActivity {
         });
     }
 
+    //method to read mealID and mealName from meal plans details
     void storeMealsInArray(){
         Cursor cursor =  db.readMealTableData();
         if(cursor.getCount() == 0){

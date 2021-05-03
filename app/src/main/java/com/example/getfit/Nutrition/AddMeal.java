@@ -45,9 +45,11 @@ public class AddMeal extends AppCompatActivity {
                 String inputId = mealID.getText().toString();
                 String inputName = mealName.getText().toString();
 
+                //input patterns
                 String idVal = "[M]+[0-9]+";
                 String nameVal = "[a-zA-Z,0-9]+";
 
+                //validating mealID and mealName
                 if(inputId.isEmpty()){
                     mealID.requestFocus();
                     mealID.setError("Field cannot be empty");
@@ -64,7 +66,6 @@ public class AddMeal extends AppCompatActivity {
                 else {
 
                     DBHelper dbHelper = new DBHelper(AddMeal.this);
-                    SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
                     dbHelper.addMeal(
                             mealID.getText().toString().trim(),
                             mealName.getText().toString().trim(),
@@ -81,11 +82,10 @@ public class AddMeal extends AppCompatActivity {
                             dm01.getText().toString().trim(),
                             dm01.getText().toString().trim());
 
-                    /*int retValue = getIntent().getIntExtra("retValue",0);
-                    if(retValue == -1) {*/
+
                     Intent intent = new Intent(AddMeal.this, MealList.class);
                     startActivity(intent);
-                    //}
+
                 }
             }
         });

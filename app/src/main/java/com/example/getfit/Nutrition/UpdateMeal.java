@@ -44,19 +44,17 @@ public class UpdateMeal extends AppCompatActivity {
                 String inputId = mealID.getText().toString();
                 String inputName = mealName.getText().toString();
 
-                //tring idVal = "[a-zA-Z ] + [0-9]";
+                //meal name pattern
                 String nameVal = "[a-zA-Z ]+";
 
+                //validating mealName input
                 if(inputId.isEmpty()){
                     mealID.requestFocus();
                     mealID.setError("Field cannot be empty");
-                }else if(inputName.isEmpty()){
+                }else if(inputName.isEmpty()) {
                     mealName.requestFocus();
                     mealName.setError("Field cannot be empty");
-                }/*else if(!inputId.matches(idVal)){
-                    mealID.requestFocus();
-                    mealID.setError("invalid characters!");
-                }*/else if(!inputName.matches(nameVal)){
+                }else if(!inputName.matches(nameVal)){
                     mealName.requestFocus();
                     mealName.setError("invalid characters!");
                 }

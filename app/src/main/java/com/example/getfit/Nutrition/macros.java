@@ -53,6 +53,8 @@ public class macros extends AppCompatActivity {
             }
         });
     }
+
+    //method to read id and foodName from macro details table
     void storeMacrosInArray(){
         Cursor cursor =  db.readMacroTableData();
         if(cursor.getCount() == 0){

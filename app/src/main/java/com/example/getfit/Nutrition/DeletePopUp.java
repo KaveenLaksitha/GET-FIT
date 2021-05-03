@@ -27,11 +27,12 @@ public class DeletePopUp extends AppCompatActivity {
         delete = findViewById(R.id.nutrition_button_delete);
         cancel = findViewById(R.id.nutrition_button_cancel);
 
-        Log.d("mealId",(getIntent().getStringExtra("mealID")));
+        //Log.d("mealId",(getIntent().getStringExtra("mealID")));
 
         mealID.setText(getIntent().getStringExtra("mealID"));
         mealName.setText(getIntent().getStringExtra("mealName"));
 
+        //delete the selected row from db when click delete button
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +47,7 @@ public class DeletePopUp extends AppCompatActivity {
             }
         });
 
+        //close the activity when click cancel button
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -20,6 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME_MACRO = "MacroDetails";
     private static final String TABLE_NAME_MEAL = "Meals";
 
+    //query to create macro details table
     public static final String queryToMacro = "CREATE TABLE " + TABLE_NAME_MACRO +
             " (" + "Id" + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
             "foodName" + " TEXT," +
@@ -33,6 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
             "potasium" + " DECIMAL(5,2)," +
             "calories" + " DECIMAL(5,2));";
 
+    //query to create macro details table
     public static final String queryToMeal = "CREATE TABLE " + TABLE_NAME_MEAL +
             " (" +
             "mealID" + " TEXT PRIMARY KEY,"+
@@ -51,12 +53,12 @@ public class DBHelper extends SQLiteOpenHelper {
             "dm04" + " TEXT);";
 
 
-
     public DBHelper(@Nullable Context context) {
         super(context, DATABASE_NAME,null,DATABASE_VERSION);
         this.context=context;
     }
 
+    //executing sql queries in onCreate method
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -65,7 +67,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-
+    //method to add meals
     void addMeal(String mealID, String mealName, String bm01, String bm02, String bm03, String bm04, String lm01, String lm02, String lm03, String lm04, String dm01, String dm02, String dm03, String dm04){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -96,6 +98,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    //method to add macro details
     void addMacro(String foodName, String energy, String fat, String carb, String fiber, String protein, String sodium, String cholesterol, String potasium, String calories){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -120,6 +123,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    //method to read all data from macro details table
     Cursor readMacroTableData(){
         String query = "SELECT * FROM " + TABLE_NAME_MACRO;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -131,6 +135,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //method to read all data from macro details table according to foodName
     Cursor SearchMacro(String foodName){
 
         String query = "SELECT * FROM " + TABLE_NAME_MACRO + " WHERE foodName LIKE " + "'" + foodName + "'";
@@ -145,6 +150,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //method to read all data from meal plans table
     Cursor readMealTableData(){
         String query = "SELECT * FROM " + TABLE_NAME_MEAL;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -156,6 +162,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //method to read all data from meal plans table according to mealID
     Cursor SearchMeal(String mealID){
 
         String query = "SELECT * FROM " + TABLE_NAME_MEAL + " WHERE mealID LIKE " + "'" + mealID + "'";
@@ -170,6 +177,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //method to update row on meal plans table where matches the mealID
     void updateMealPlan(String mealID,String mealName, String bm01, String bm02, String bm03, String bm04, String lm01, String lm02, String lm03, String lm04, String dm01, String dm02, String dm03, String dm04){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -200,6 +208,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    //method to delete row on meal plans table where matches the mealID
     void deleteMealRow(String mealID){
 
 

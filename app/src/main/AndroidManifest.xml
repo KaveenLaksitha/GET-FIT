@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.getfit" >
+    package="com.example.getfit">
 
     <application
         android:allowBackup="true"
@@ -8,19 +8,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GETFIT" >
-        <activity
-            android:name=".Nutrition.Drawer"
-            android:label="@string/title_activity_drawer"
-            android:theme="@style/Theme.GETFIT.NoActionBar" >
+        android:theme="@style/Theme.GETFIT">
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
         <!-- Start of ToDO List -->
         <activity
             android:name=".ToDo_List.UpdateToDo"
             android:parentActivityName=".ToDo_List.To_Do_List" />
         <activity
             android:name=".ToDo_List.SignIn"
-            android:label="Sign In" >
+            android:label="Sign In">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,6 +52,7 @@
             android:label="Update Supplement"
             android:parentActivityName=".Supplement.SupDashboard" />
         <!-- end of ToDO List -->
+
         <!-- Start of Supplement management -->
         <activity
             android:name=".Supplement.ViewSupplement"
@@ -62,7 +66,9 @@
         <activity
             android:name=".Supplement.AddSupplement"
             android:label="Add Supplement"
-            android:parentActivityName=".Supplement.SupDashboard" /> <!-- End of Supplement management -->
+            android:parentActivityName=".Supplement.SupDashboard" />
+        <!-- End of Supplement management -->
+
         <!-- Start of Nutrition management -->
         <activity
             android:name=".Workout.ViewExerciseImage"
@@ -101,14 +107,15 @@
             android:parentActivityName=".Workout.WorkoutDashBoard" />
         <activity
             android:name=".Workout.WorkoutDashBoard"
-            android:label="WorkOut DashBoard" /> <!-- End of Supplement management -->
+            android:label="WorkOut DashBoard" />
+        <!-- End of Supplement management -->
+
         <!-- Start of Nutrition management -->
         <activity android:name=".Nutrition.NutritionNavigate" />
         <activity
             android:name=".Nutrition.user_meal_view"
             android:label="Meal Plan Details"
-            android:parentActivityName=".Nutrition.ViewMeals" >
-        </activity>
+            android:parentActivityName=".Nutrition.ViewMeals"></activity>
         <activity android:name=".Nutrition.DeletePopUp" />
         <activity
             android:name=".Nutrition.macroCal"
@@ -138,7 +145,8 @@
             android:name=".Nutrition.ViewMeals"
             android:label="Meal Plans"
             android:parentActivityName=".Nutrition.MainActivity" />
-        <activity android:name=".Nutrition.MainActivity" /> <!-- End of Supplement management -->
+        <activity android:name=".Nutrition.MainActivity" />
+        <!-- End of Supplement management -->
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -44,6 +44,7 @@ public class UserMealsAdapter extends RecyclerView.Adapter<UserMealsAdapter.Meal
         //holder.mealID.setText(String.valueOf(mealID.get(position)));
         holder.mealName.setText(String.valueOf(mealName.get(position)));
 
+        //method to view meal plan details user selected
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

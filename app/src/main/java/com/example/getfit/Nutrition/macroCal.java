@@ -2,6 +2,7 @@ package com.example.getfit.Nutrition;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -12,12 +13,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.getfit.R;
+import com.example.getfit.Supplement.ViewSupplement;
+import com.example.getfit.ToDo_List.To_Do_List;
+import com.example.getfit.Workout.WorkOuts;
 
 public class macroCal extends AppCompatActivity {
 
     EditText txtInFood,numInServSize;
     TextView txtViewEnergy,txtViewFat,txtViewCarbs,txtViewFiber,txtViewProtein,txtViewSodium,txtViewCholesterol,txtViewPotasium,txtViewCalories;
-    Button btnFindMacro;
+    Button btnFindMacro,navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
     DBHelper dbHelper;
     String foodName;
     Float servings;
@@ -41,6 +45,11 @@ public class macroCal extends AppCompatActivity {
         txtViewCalories = findViewById(R.id.txtViewCalories);
 
         btnFindMacro = findViewById(R.id.btnFindMacro);
+
+        navigate_todo = findViewById(R.id.navigate_todo);
+        navigate_workout = findViewById(R.id.navigate_workout);
+        navigate_nutrition = findViewById(R.id.navigate_nutrition);
+        navigate_supplement = findViewById(R.id.navigate_supplement);
 
         btnFindMacro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +85,49 @@ public class macroCal extends AppCompatActivity {
                     txtViewCalories.setText(String.valueOf(caloriesVal));
 
                 }
+
+            }
+        });
+        //redirects to todoList
+        navigate_todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(macroCal.this, To_Do_List.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to workout
+        navigate_workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(macroCal.this, WorkOuts.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to meal list
+        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(macroCal.this,ViewMeals.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to supplement list
+        navigate_supplement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(macroCal.this, ViewSupplement.class);
+                startActivity(intent);
 
             }
         });

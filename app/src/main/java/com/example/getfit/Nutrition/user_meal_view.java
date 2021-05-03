@@ -27,7 +27,7 @@ public class user_meal_view extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_meal_view);
 
-        Log.d("mealId",(getIntent().getStringExtra("mealID")));
+        //Log.d("mealId",(getIntent().getStringExtra("mealID")));
 
         //retrieve the mealID from intent
         String clickedRow = getIntent().getStringExtra("mealID");
