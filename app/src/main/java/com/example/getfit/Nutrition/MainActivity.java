@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         btnWeightCon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NutritionNavigate.class);
+                Intent intent = new Intent(MainActivity.this, WeightConverter.class);
                 startActivity(intent);
             }
         });

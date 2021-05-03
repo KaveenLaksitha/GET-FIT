@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.getfit">
+    package="com.example.getfit" >
 
     <application
         android:allowBackup="true"
@@ -8,32 +8,32 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GETFIT">
-
-
+        android:theme="@style/Theme.GETFIT" >
+        <activity
+            android:name=".Nutrition.Drawer"
+            android:label="@string/title_activity_drawer"
+            android:theme="@style/Theme.GETFIT.NoActionBar" >
+        </activity>
         <!-- Start of ToDO List -->
         <activity
             android:name=".ToDo_List.UpdateToDo"
             android:parentActivityName=".ToDo_List.To_Do_List" />
-
-        //launching activity
         <activity
             android:name=".ToDo_List.SignIn"
-            android:label="Sign In">
+            android:label="Sign In" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ToDo_List.Add_ToDo"
             android:label="Add List"
             android:parentActivityName=".ToDo_List.To_Do_List" />
         <activity
             android:name=".ToDo_List.To_Do_List"
-            android:label="To Do List"></activity>
+            android:label="To Do List" />
         <activity
             android:name=".ToDo_List.UserProfile"
             android:label="User Profile" />
@@ -43,132 +43,102 @@
             android:parentActivityName=".Nutrition.MainActivity" />
         <activity
             android:name=".ToDo_List.SignUp"
-            android:label="Sign Up"></activity>
+            android:label="Sign Up" />
         <activity
             android:name=".Supplement.UpdateSupplement"
             android:label="Update Supplement"
-            android:parentActivityName=".Supplement.SupDashboard"></activity>
+            android:parentActivityName=".Supplement.SupDashboard" />
         <!-- end of ToDO List -->
-
         <!-- Start of Supplement management -->
-
         <activity
             android:name=".Supplement.ViewSupplement"
             android:label="View Supplement"
-            android:parentActivityName=".Supplement.SupDashboard"></activity>
-
+            android:parentActivityName=".Supplement.SupDashboard" />
         <activity
             android:name=".Supplement.BMICalculator"
             android:label="BMI Calculator"
-            android:parentActivityName=".Nutrition.MainActivity"></activity>
-
+            android:parentActivityName=".Nutrition.MainActivity" />
         <activity android:name=".Supplement.SupDashboard" />
-
         <activity
             android:name=".Supplement.AddSupplement"
             android:label="Add Supplement"
-            android:parentActivityName=".Supplement.SupDashboard"></activity>
-        <!-- End of Supplement management -->
-
+            android:parentActivityName=".Supplement.SupDashboard" /> <!-- End of Supplement management -->
         <!-- Start of Nutrition management -->
         <activity
             android:name=".Workout.ViewExerciseImage"
             android:label="WorkOut Image"
             android:parentActivityName=".Workout.ModifyExercise" />
-
         <activity
             android:name=".Workout.ImageUpload"
             android:label="Upload WorkOut Image"
             android:parentActivityName=".Workout.AddExercise" />
-
         <activity
             android:name=".Workout.AllExercises"
             android:label="WorkOuts Listing"
             android:parentActivityName=".Workout.WorkoutDashBoard" />
-
         <activity
             android:name=".Workout.ViewExercise"
             android:label="Exercise"
             android:parentActivityName=".Workout.WorkOuts" />
-
         <activity
             android:name=".Workout.WorkOuts"
-            android:label="WorkOut Packages"></activity>
-
+            android:label="WorkOut Packages" />
         <activity
             android:name=".Workout.ModifyExercise"
             android:label="Modify Exercise"
             android:parentActivityName=".Workout.AllExercises" />
-
         <activity
             android:name=".Workout.WeightConverter"
             android:label="Weight Converter"
             android:parentActivityName=".Workout.WorkoutDashBoard" />
-
         <activity
             android:name=".Workout.Counter"
             android:label="Count Down Timer"
             android:parentActivityName=".Workout.WorkOuts" />
-
         <activity
             android:name=".Workout.AddExercise"
             android:label="Add Exercise"
             android:parentActivityName=".Workout.WorkoutDashBoard" />
-
         <activity
             android:name=".Workout.WorkoutDashBoard"
-            android:label="WorkOut DashBoard" />
-
-        <!-- End of Supplement management -->
-
+            android:label="WorkOut DashBoard" /> <!-- End of Supplement management -->
         <!-- Start of Nutrition management -->
-
-        <activity android:name=".Nutrition.NutritionNavigate"></activity>
-
-        <activity android:name=".Nutrition.user_meal_view"
+        <activity android:name=".Nutrition.NutritionNavigate" />
+        <activity
+            android:name=".Nutrition.user_meal_view"
             android:label="Meal Plan Details"
-            android:parentActivityName=".Nutrition.ViewMeals">
+            android:parentActivityName=".Nutrition.ViewMeals" >
         </activity>
-
         <activity android:name=".Nutrition.DeletePopUp" />
-
         <activity
             android:name=".Nutrition.macroCal"
             android:label="Macro Finder"
             android:parentActivityName=".Nutrition.MainActivity" />
-
         <activity
             android:name=".Nutrition.macros"
             android:label="Added Macros"
             android:parentActivityName=".Nutrition.NutritionNavigate" />
-
         <activity
             android:name=".Nutrition.AddMeal"
             android:label="Add a Meal"
             android:parentActivityName=".Nutrition.NutritionNavigate" />
-
         <activity
             android:name=".Nutrition.UpdateMeal"
             android:label="Update a Meal"
             android:parentActivityName=".Nutrition.NutritionNavigate" />
-
         <activity
             android:name=".Nutrition.AddMacros"
             android:label="Add new Macro record"
             android:parentActivityName=".Nutrition.macros" />
-
         <activity
             android:name=".Nutrition.MealList"
             android:label="Added Meal Plans"
             android:parentActivityName=".Nutrition.NutritionNavigate" />
-
-        <activity android:name=".Nutrition.ViewMeals"
-            android:label="Meal Plans"/>
-        <activity android:name=".Nutrition.MainActivity"></activity>
-
-        <!-- End of Supplement management -->
-
-
+        <activity
+            android:name=".Nutrition.ViewMeals"
+            android:label="Meal Plans"
+            android:parentActivityName=".Nutrition.MainActivity" />
+        <activity android:name=".Nutrition.MainActivity" /> <!-- End of Supplement management -->
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

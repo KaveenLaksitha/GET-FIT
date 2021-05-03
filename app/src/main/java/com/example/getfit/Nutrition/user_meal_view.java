@@ -2,17 +2,24 @@ package com.example.getfit.Nutrition;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.getfit.R;
+import com.example.getfit.Supplement.ViewSupplement;
+import com.example.getfit.ToDo_List.To_Do_List;
+import com.example.getfit.Workout.WorkOuts;
 
 public class user_meal_view extends AppCompatActivity {
 
     TextView um_bm01,um_bm02,um_bm03,um_bm04,um_lm01,um_lm02,um_lm03,um_lm04,um_dm01,um_dm02,um_dm03,um_dm04;
+    Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
     DBHelper dbHelper;
 
     @Override
@@ -22,7 +29,13 @@ public class user_meal_view extends AppCompatActivity {
 
         Log.d("mealId",(getIntent().getStringExtra("mealID")));
 
+        //retrieve the mealID from intent
         String clickedRow = getIntent().getStringExtra("mealID");
+
+        navigate_todo = findViewById(R.id.navigate_todo);
+        navigate_workout = findViewById(R.id.navigate_workout);
+        navigate_nutrition = findViewById(R.id.navigate_nutrition);
+        navigate_supplement = findViewById(R.id.navigate_supplement);
 
         um_bm01 = findViewById(R.id.um_bm01);
         um_bm02= findViewById(R.id.um_bm02);
@@ -38,7 +51,6 @@ public class user_meal_view extends AppCompatActivity {
         um_dm04= findViewById(R.id.um_dm04);
 
         dbHelper = new DBHelper(getApplicationContext());
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = dbHelper.SearchMeal(clickedRow);
 
         if(cursor.moveToFirst()){
@@ -57,5 +69,46 @@ public class user_meal_view extends AppCompatActivity {
             um_dm04.setText(cursor.getString(13));
 
         }
+
+        //bottom navigation buttons on click listners
+        navigate_todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(user_meal_view.this, To_Do_List.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(user_meal_view.this, WorkOuts.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(user_meal_view.this,ViewMeals.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_supplement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(user_meal_view.this, ViewSupplement.class);
+                startActivity(intent);
+
+            }
+        });
     }
 }
