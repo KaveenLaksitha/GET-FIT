@@ -156,6 +156,20 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    Cursor SearchMeal(String mealID){
+
+        String query = "SELECT * FROM " + TABLE_NAME_MEAL + " WHERE mealID LIKE " + "'" + mealID + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+        }if (cursor.getCount() == 0){
+            Toast.makeText(context,"Sorry no data found!",Toast.LENGTH_SHORT).show();
+        }
+        return cursor;
+    }
+
     void updateMealPlan(String mealID,String mealName, String bm01, String bm02, String bm03, String bm04, String lm01, String lm02, String lm03, String lm04, String dm01, String dm02, String dm03, String dm04){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();

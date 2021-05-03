@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,7 +21,6 @@ public class UserMealsAdapter extends RecyclerView.Adapter<UserMealsAdapter.Meal
 
     private Context context;
     private ArrayList mealID,mealName;
-    int position;
 
     UserMealsAdapter(Context context, ArrayList mealID, ArrayList mealName){
 
@@ -40,10 +40,19 @@ public class UserMealsAdapter extends RecyclerView.Adapter<UserMealsAdapter.Meal
 
     @Override
     public void onBindViewHolder(@NonNull MealsViewHolder holder, int position) {
-        this.position = position;
 
         //holder.mealID.setText(String.valueOf(mealID.get(position)));
         holder.mealName.setText(String.valueOf(mealName.get(position)));
+
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Log.d("clicked id is <<<<<<<<",String.valueOf(mealID.get(position)));
+                Intent intent = new Intent(context,user_meal_view.class);
+                intent.putExtra("mealID",String.valueOf(mealID.get(position)));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -54,12 +63,14 @@ public class UserMealsAdapter extends RecyclerView.Adapter<UserMealsAdapter.Meal
     public class MealsViewHolder extends RecyclerView.ViewHolder {
 
         TextView mealID, mealName;
+        LinearLayout mainLayout;
 
     public MealsViewHolder(@NonNull View itemView) {
 
         super(itemView);
         mealID = itemView.findViewById(R.id.user_viewMeal_Id);
         mealName = itemView.findViewById(R.id.user_viewMeal);
+        mainLayout = itemView.findViewById(R.id.um_mainLayout);
     }
 
 }
