@@ -153,6 +153,9 @@
     <string name="WorkOutGetImagebtn">Image</string>
     <string name="woShowImage">WorkOut Image</string>
     <string name="ViewExeImgUpdateBtn">CHANGE IMAGE</string>
+    <!-- side nav bar -->
+    <string name="Open">OPEN</string>
+    <string name="Close">CLOSE</string>
 
     <string name="SignUptxtName">User Name</string>
     <string name="SignUptxtEmail">Email</string>

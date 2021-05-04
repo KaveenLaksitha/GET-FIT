@@ -9,11 +9,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.getfit.Nutrition.ViewMeals;
 import com.example.getfit.R;
+import com.example.getfit.Supplement.ViewSupplement;
+import com.example.getfit.ToDo_List.To_Do_List;
 
 import java.util.Locale;
 
 public class Counter extends AppCompatActivity {
+
+    //navigation bar buttons
+    Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
+
     private static long START_TIME_IN_MILLIS;
 
     TextView mTextViewCountDown;
@@ -30,11 +37,16 @@ public class Counter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
 
-        //getSupportActionBar().setTitle("Counter");
-
+        //buttons and text view of the time down counter
         mTextViewCountDown = findViewById(R.id.counter_tv2);
         mButtonStartPause = findViewById(R.id.StartBtn);
         mButtonReset = findViewById(R.id.StopBtn);
+
+        //navigation buttons
+        navigate_nutrition = findViewById(R.id.navigate_nutrition);
+        navigate_supplement = findViewById(R.id.navigate_supplement);
+        navigate_todo =findViewById(R.id.navigate_todo);
+        navigate_workout = findViewById(R.id.navigate_workout);
 
         Intent intent = getIntent();
         String msg = intent.getStringExtra("time");
@@ -106,5 +118,51 @@ public class Counter extends AppCompatActivity {
         String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d",minutes,seconds);
 
         mTextViewCountDown.setText(timeLeftFormatted);
+    }
+
+
+
+    //lower navigation bar button page directions
+    protected void onResume() {
+        super.onResume();
+
+        navigate_todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Counter.this, To_Do_List.class);
+                startActivity(intent);
+            }
+        });
+
+        navigate_workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Counter.this, WorkOuts.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Counter.this, ViewMeals.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_supplement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Counter.this, ViewSupplement.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 }

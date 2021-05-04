@@ -56,7 +56,11 @@ public class MuscleGainFragment extends Fragment {
         for(Object woName : unames){
             arrayList.add(woName.toString());
         }
-        Toast.makeText(getActivity().getApplicationContext(), unames.toString(),Toast.LENGTH_LONG).show();
+        if (unames != null) {
+            Toast.makeText(getActivity().getApplicationContext(), unames.toString(), Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getActivity().getApplicationContext(), "No Exercises Available", Toast.LENGTH_SHORT).show();
+        }
 
         muscleGainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
