@@ -10,11 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GETFIT">
         <activity android:name=".SplashScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!-- Start of ToDO List -->
@@ -27,7 +23,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -108,7 +104,7 @@
         <activity
             android:name=".Workout.WorkoutDashBoard"
             android:label="WorkOut DashBoard" />
-        <!-- End of Supplement management -->
+        <!-- End of WorkOut management -->
 
         <!-- Start of Nutrition management -->
         <activity android:name=".Nutrition.NutritionNavigate" />
@@ -145,8 +141,14 @@
             android:name=".Nutrition.ViewMeals"
             android:label="Meal Plans"
             android:parentActivityName=".Nutrition.MainActivity" />
-        <activity android:name=".Nutrition.MainActivity" />
-        <!-- End of Supplement management -->
+        <activity android:name=".Nutrition.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- End of Nutrition management -->
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

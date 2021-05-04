@@ -203,5 +203,6 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="button_mealSearch">Find</string>
+    <string name="navBarProfile" textSize="18sp" >Profile</string>
 
 </resources>

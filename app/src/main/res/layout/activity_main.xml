@@ -11,6 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:backgroundTint="#9503A9F4"
         tools:context=".Nutrition.MainActivity">
 
         <!--<RelativeLayout
@@ -100,9 +101,9 @@
             android:id="@+id/linearLayout2"
             android:layout_width="412dp"
             android:layout_height="64dp"
-            android:orientation="horizontal"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true" >
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/navigate_todo"

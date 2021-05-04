@@ -12,18 +12,8 @@
         android:layout_height="132dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/ic_baseline_fitness_center_24">
+        android:background="@drawable/logo">
 
     </ImageView>
-
-    <TextView
-        android:id="@+id/tvNavHead"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:text="GET FIT"
-        android:textAlignment="center"
-        android:textColor="#131212"
-        android:textSize="18sp"
-        android:textStyle="bold" />
 
 </LinearLayout>
