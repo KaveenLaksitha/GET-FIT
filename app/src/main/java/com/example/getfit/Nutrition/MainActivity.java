@@ -1,27 +1,33 @@
 package com.example.getfit.Nutrition;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.getfit.R;
 import com.example.getfit.Supplement.BMICalculator;
 import com.example.getfit.Supplement.ViewSupplement;
 import com.example.getfit.ToDo_List.To_Do_List;
-import com.example.getfit.ToDo_List.UserProfile;
 import com.example.getfit.Workout.WeightConverter;
 import com.example.getfit.Workout.WorkOuts;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnBMICal,btnWeightCon,btnMacroCal,navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
-    ImageButton userprofile;
 
-    String user;
+
+    //for the side nav bar
+    private DrawerLayout dl;
+    private ActionBarDrawerToggle abdt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,27 +38,56 @@ public class MainActivity extends AppCompatActivity {
         btnWeightCon = findViewById(R.id.btnWeightCon);
         btnMacroCal = findViewById(R.id.btnMacroCal);
 
+        //side nav bar
+        dl = findViewById(R.id.dl);
+        abdt = new ActionBarDrawerToggle(this,dl,R.string.Open,R.string.Close);
+        abdt.setDrawerIndicatorEnabled(true);
+
+        dl.addDrawerListener(abdt);
+        abdt.syncState();
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final NavigationView nav_view  = (NavigationView)findViewById(R.id.nav_view);
+
+
+        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+
+                if(id == R.id.myProfile){
+
+                    Intent profile = new Intent(MainActivity.this,To_Do_List.class);
+                    startActivity(profile);
+                }else if(id == R.id.toDoNav){
+
+                    Intent todoNav = new Intent(MainActivity.this,To_Do_List.class);
+                    startActivity(todoNav);
+                }else if(id == R.id.woNav){
+
+                    Intent woNav = new Intent(MainActivity.this,WorkOuts.class);
+                    startActivity(woNav);
+                }else if(id == R.id.nutritionNav){
+
+                    Intent nutritionNav = new Intent(MainActivity.this,ViewMeals.class);
+                    startActivity(nutritionNav);
+                }else if(id == R.id.suppleNav){
+
+                    Intent suppleNav = new Intent(MainActivity.this,ViewSupplement.class);
+                    startActivity(suppleNav);
+                }
+
+                return true;
+            }
+        });
+
+        //bottom navigation bar
         navigate_todo = findViewById(R.id.navigate_todo);
         navigate_workout = findViewById(R.id.navigate_workout);
         navigate_nutrition = findViewById(R.id.navigate_nutrition);
         navigate_supplement = findViewById(R.id.navigate_supplement);
-
-        userprofile = findViewById(R.id.userprofile);
-
-        Intent intent = getIntent();
-
-        user = intent.getStringExtra("username");
-
-
-        userprofile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, UserProfile.class);
-                intent.putExtra("username",user);
-                startActivity(intent);
-            }
-        });
-
 
         //redirects to BMI calculator page
         btnBMICal.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //redirects to todoList
         navigate_todo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //redirects to workout
         navigate_workout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //redirects to meal list
         navigate_nutrition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //redirects to supplement list
         navigate_supplement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,4 +164,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+
+    }
+
 }

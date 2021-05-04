@@ -1,8 +1,10 @@
 package com.example.getfit.Workout;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -89,9 +91,6 @@ public class ImageUpload extends AppCompatActivity {
             else{
                 Toast.makeText(this,"Please select image name and image" , Toast.LENGTH_SHORT).show();
             }
-
-
-
         }catch(Exception e){
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -102,10 +101,31 @@ public class ImageUpload extends AppCompatActivity {
         try{
             if(!imageDetailsET.getText().toString().isEmpty())
             {
-                dbHelper.deleteImageInfo(imageDetailsET.getText().toString());
+                AlertDialog.Builder dialog = new AlertDialog.Builder(ImageUpload.this);
+                dialog.setCancelable(false);
+                dialog.setTitle("Get Fit App Workout Image Delete");
+                dialog.setMessage("Are you sure you want to delete this image?" );
+                dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //Action for "Delete".
+                        dbHelper.deleteImageInfo(imageDetailsET.getText().toString());
+                    }
+                })
+                        .setNegativeButton("Cancel ", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //Action for "Cancel".
+                            }
+                        });
+
+                final AlertDialog alert = dialog.create();
+                alert.show();
             }
             else{
-                Toast.makeText(this,"Please enter image Id to proceed " , Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,"Please enter image Id to proceed " , Toast.LENGTH_SHORT).show();
+                imageDetailsET.requestFocus();
+                imageDetailsET.setError("Please enter image Id to proceed ");
             }
 
 

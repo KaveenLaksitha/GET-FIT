@@ -153,6 +153,9 @@
     <string name="WorkOutGetImagebtn">Image</string>
     <string name="woShowImage">WorkOut Image</string>
     <string name="ViewExeImgUpdateBtn">CHANGE IMAGE</string>
+    <!-- side nav bar -->
+    <string name="Open">OPEN</string>
+    <string name="Close">CLOSE</string>
 
     <string name="SignUptxtName">User Name</string>
     <string name="SignUptxtEmail">Email</string>
@@ -190,5 +193,18 @@
     <string name="SignIn">SIGN IN</string>
     <string name="button">BMI</string>
     <string name="GETFIT">GET  FIT!</string>
+    <string name="title_activity_drawer">Drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="button_mealSearch">Find</string>
+    <string name="navBarProfile" textSize="18sp" >Profile</string>
 
 </resources>

@@ -3,16 +3,21 @@ package com.example.getfit.Workout;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.getfit.Nutrition.ViewMeals;
 import com.example.getfit.R;
+import com.example.getfit.Supplement.ViewSupplement;
+import com.example.getfit.ToDo_List.To_Do_List;
 
 public class WeightConverter extends AppCompatActivity {
 
@@ -23,6 +28,9 @@ public class WeightConverter extends AppCompatActivity {
     RadioButton weight_radioBtn3;
     float weightValue;
     TextView weight_tv2;
+
+    //navigation bar buttons
+    Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +44,11 @@ public class WeightConverter extends AppCompatActivity {
         weight_radioBtn2 =findViewById(R.id.weight_radioBtn2);
         weight_radioBtn3 =findViewById(R.id.weight_radioBtn3);
 
+        navigate_nutrition = findViewById(R.id.navigate_nutrition);
+        navigate_supplement = findViewById(R.id.navigate_supplement);
+        navigate_todo =findViewById(R.id.navigate_todo);
+        navigate_workout = findViewById(R.id.navigate_workout);
+
     }
 
 
@@ -44,7 +57,10 @@ public class WeightConverter extends AppCompatActivity {
             if(TextUtils.isEmpty(weight.getText().toString()) && radioGroup.getCheckedRadioButtonId() == -1){
                 Toast.makeText(getApplicationContext(),"Please enter a weight value and check option ",Toast.LENGTH_SHORT).show();
             }else if(TextUtils.isEmpty(weight.getText().toString())){
-                Toast.makeText(getApplicationContext(),"Please enter a weight value to continue ",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Please enter a weight value to continue ",Toast.LENGTH_SHORT).show();
+                    weight.setError("Please enter a weight value to continue");
+                    weight.requestFocus();
+                    return;
             }else if(radioGroup.getCheckedRadioButtonId() == -1){
                 Toast.makeText(getApplicationContext(),"Please select a weight conversion option ",Toast.LENGTH_SHORT).show();
             }else{
@@ -76,7 +92,7 @@ public class WeightConverter extends AppCompatActivity {
     }
 
     public void emptyForm(){
-        weight.setText("");
+        //weight.setText("");
         weight_radioBtn1.setChecked(false);
         weight_radioBtn2.setChecked(false);
         weight_radioBtn3.setChecked(false);
@@ -99,4 +115,52 @@ public class WeightConverter extends AppCompatActivity {
         float value = (float) (weightValue / 6.34);
         return value;
     }
+
+
+    //lower navigation bar button page directions
+    protected void onResume() {
+        super.onResume();
+
+        navigate_todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WeightConverter.this, To_Do_List.class);
+                startActivity(intent);
+            }
+        });
+
+        navigate_workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(WeightConverter.this, WorkOuts.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(WeightConverter.this, ViewMeals.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_supplement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(WeightConverter.this, ViewSupplement.class);
+                startActivity(intent);
+
+            }
+        });
+
+    }
+
+
+
 }

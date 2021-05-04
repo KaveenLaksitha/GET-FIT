@@ -3,6 +3,7 @@ package com.example.getfit.Nutrition;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,9 +45,11 @@ public class AddMeal extends AppCompatActivity {
                 String inputId = mealID.getText().toString();
                 String inputName = mealName.getText().toString();
 
+                //input patterns
                 String idVal = "[M]+[0-9]+";
                 String nameVal = "[a-zA-Z,0-9]+";
 
+                //validating mealID and mealName
                 if(inputId.isEmpty()){
                     mealID.requestFocus();
                     mealID.setError("Field cannot be empty");
@@ -79,11 +82,10 @@ public class AddMeal extends AppCompatActivity {
                             dm01.getText().toString().trim(),
                             dm01.getText().toString().trim());
 
-                    /*int retValue = getIntent().getIntExtra("retValue",0);
-                    if(retValue == -1) {*/
+
                     Intent intent = new Intent(AddMeal.this, MealList.class);
                     startActivity(intent);
-                    //}
+
                 }
             }
         });

@@ -3,6 +3,7 @@ package com.example.getfit.Nutrition;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -65,6 +66,7 @@ public class AddMacros extends AppCompatActivity {
                 }else {
 
                     DBHelper dbHelper = new DBHelper(AddMacros.this);
+                    SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
                     dbHelper.addMacro(title_foodName.getText().toString().trim(),
                             title_energy.getText().toString().trim(),
                             title_fat.getText().toString().trim(),
