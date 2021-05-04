@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //redirects to todoList
         navigate_todo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //redirects to workout
         navigate_workout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //redirects to meal list
         navigate_nutrition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //redirects to supplement list
         navigate_supplement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

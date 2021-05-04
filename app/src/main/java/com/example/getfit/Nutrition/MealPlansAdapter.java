@@ -48,8 +48,9 @@ public class MealPlansAdapter extends RecyclerView.Adapter<MealPlansAdapter.Meal
         holder.mealID.setText(String.valueOf(mealID.get(position)));
         holder.mealName.setText(String.valueOf(mealName.get(position)));
 
+        //show delete popup acivity
         holder.nutrition_button_deleteMeal.setOnClickListener((view) ->{
-            Log.d("clicked on id",String.valueOf(mealID.get(position)));
+            //Log.d("clicked on id",String.valueOf(mealID.get(position)));
 
             Intent intent = new Intent(context,DeletePopUp.class);
             intent.putExtra("mealID",String.valueOf(mealID.get(position)));

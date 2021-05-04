@@ -23,6 +23,7 @@ public class NutritionNavigate extends AppCompatActivity {
         update_meal = findViewById(R.id.nutrition_button_updateMeals);
         view_macros = findViewById(R.id.nutrition_button_Macros);
 
+        //redirects to MealList activity
         view_meal.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -31,6 +32,7 @@ public class NutritionNavigate extends AppCompatActivity {
             }
         });
 
+        //redirects to AddMeal activity
         add_meal.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -39,6 +41,7 @@ public class NutritionNavigate extends AppCompatActivity {
             }
         });
 
+        //redirects to UpdateMeal activity
         update_meal.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -47,6 +50,7 @@ public class NutritionNavigate extends AppCompatActivity {
             }
         });
 
+        //redirects to macros activity
         view_macros.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

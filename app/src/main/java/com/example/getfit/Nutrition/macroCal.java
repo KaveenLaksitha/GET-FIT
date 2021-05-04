@@ -2,23 +2,29 @@ package com.example.getfit.Nutrition;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.getfit.R;
+import com.example.getfit.Supplement.ViewSupplement;
+import com.example.getfit.ToDo_List.To_Do_List;
+import com.example.getfit.Workout.WorkOuts;
 
 public class macroCal extends AppCompatActivity {
 
     EditText txtInFood,numInServSize;
     TextView txtViewEnergy,txtViewFat,txtViewCarbs,txtViewFiber,txtViewProtein,txtViewSodium,txtViewCholesterol,txtViewPotasium,txtViewCalories;
-    Button btnFindMacro;
+    Button btnFindMacro,navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
     DBHelper dbHelper;
     String foodName;
+    Float servings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,29 +46,88 @@ public class macroCal extends AppCompatActivity {
 
         btnFindMacro = findViewById(R.id.btnFindMacro);
 
+        navigate_todo = findViewById(R.id.navigate_todo);
+        navigate_workout = findViewById(R.id.navigate_workout);
+        navigate_nutrition = findViewById(R.id.navigate_nutrition);
+        navigate_supplement = findViewById(R.id.navigate_supplement);
+
         btnFindMacro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 foodName = txtInFood.getText().toString().trim();
+                servings = Float.valueOf(numInServSize.getText().toString().trim());
+                Log.d("inputed string", foodName);
                 dbHelper = new DBHelper(getApplicationContext());
                 SQLiteDatabase db = dbHelper.getReadableDatabase();
-                /*Cursor cursor = ;
+                Cursor cursor = dbHelper.SearchMacro(foodName);
                 if(cursor.moveToFirst())
                 {
-                    String MOBILE=cursor.getString(0);
-                    String EMALL=cursor.getString(1);
-                    txtViewEnergy.setText();
-                    txtViewFat.setText();
-                    txtViewCarbs.setText();
-                    txtViewFiber.setText();
-                    txtViewProtein.setText();
-                    txtViewSodium.setText();
-                    txtViewCholesterol.setText();
-                    txtViewPotasium.setText();
-                    txtViewCalories.setText();
 
-                }*/
+                    Float energyVal = Float.valueOf(cursor.getString(2))/150 * servings;
+                    Float fatVal = Float.valueOf(cursor.getString(3))/150 * servings;
+                    Float carbyVal = Float.valueOf(cursor.getString(4))/150 * servings;
+                    Float fiberVal = Float.valueOf(cursor.getString(5))/150 * servings;
+                    Float proteinVal = Float.valueOf(cursor.getString(6))/150 * servings;
+                    Float sodiumVal = Float.valueOf(cursor.getString(7))/150 * servings;
+                    Float cholesterolVal = Float.valueOf(cursor.getString(8))/150 * servings;
+                    Float potasiumVal = Float.valueOf(cursor.getString(9))/150 * servings;
+                    Float caloriesVal = Float.valueOf(cursor.getString(10))/150 * servings;
+
+                    txtViewEnergy.setText(String.valueOf(energyVal));
+                    txtViewFat.setText(String.valueOf(fatVal));
+                    txtViewCarbs.setText(String.valueOf(carbyVal));
+                    txtViewFiber.setText(String.valueOf(fiberVal));
+                    txtViewProtein.setText(String.valueOf(proteinVal));
+                    txtViewSodium.setText(String.valueOf(sodiumVal));
+                    txtViewCholesterol.setText(String.valueOf(cholesterolVal));
+                    txtViewPotasium.setText(String.valueOf(potasiumVal));
+                    txtViewCalories.setText(String.valueOf(caloriesVal));
+
+                }
+
+            }
+        });
+        //redirects to todoList
+        navigate_todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(macroCal.this, To_Do_List.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to workout
+        navigate_workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(macroCal.this, WorkOuts.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to meal list
+        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(macroCal.this,ViewMeals.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to supplement list
+        navigate_supplement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(macroCal.this, ViewSupplement.class);
+                startActivity(intent);
 
             }
         });

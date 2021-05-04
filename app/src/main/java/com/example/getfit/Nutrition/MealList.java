@@ -33,6 +33,7 @@ public class MealList extends AppCompatActivity {
         recyclerView = findViewById(R.id.meals_recyclerView);
         button_addMeal = findViewById(R.id.button_addMeal);
 
+        //redirects to addMeals activity when click add button
         button_addMeal.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -52,6 +53,7 @@ public class MealList extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(MealList.this));
     }
 
+    //read mealID and mealName from meal plans table
     void storeMealsInArray(){
         Cursor cursor =  db.readMealTableData();
         if(cursor.getCount() == 0){

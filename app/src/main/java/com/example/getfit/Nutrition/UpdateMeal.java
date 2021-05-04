@@ -3,6 +3,7 @@ package com.example.getfit.Nutrition;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,8 @@ import com.example.getfit.R;
 public class UpdateMeal extends AppCompatActivity {
 
     EditText mealID,mealName,bm01,bm02,bm03,bm04,lm01,lm02,lm03,lm04,dm01,dm02,dm03,dm04;
-    Button nutrition_button_updateMeal;
+    Button button_mealSearch,nutrition_button_updateMeal;
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,45 @@ public class UpdateMeal extends AppCompatActivity {
         dm02 = findViewById(R.id.dm02);
         dm03 = findViewById(R.id.dm03);
         dm04 = findViewById(R.id.dm04);
+
+        button_mealSearch = findViewById(R.id.button_mealSearch);
         nutrition_button_updateMeal = findViewById(R.id.nutrition_button_updateMeal);
+
+
+        button_mealSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String inputID = mealID.getText().toString();
+
+                if(inputID.isEmpty()){
+                    mealID.requestFocus();
+                    mealID.setError("Field cannot be empty");
+                }
+                else {
+                    dbHelper = new DBHelper(getApplicationContext());
+                    Cursor cursor = dbHelper.SearchMeal(inputID);
+
+                    if (cursor.moveToFirst()) {
+
+                        bm01.setText(cursor.getString(2));
+                        bm02.setText(cursor.getString(3));
+                        bm03.setText(cursor.getString(4));
+                        bm04.setText(cursor.getString(5));
+                        lm01.setText(cursor.getString(6));
+                        lm02.setText(cursor.getString(7));
+                        lm03.setText(cursor.getString(8));
+                        lm04.setText(cursor.getString(9));
+                        dm01.setText(cursor.getString(10));
+                        dm02.setText(cursor.getString(11));
+                        dm03.setText(cursor.getString(12));
+                        dm04.setText(cursor.getString(13));
+
+                    }
+                }
+
+            }
+        });
 
         nutrition_button_updateMeal.setOnClickListener(new View.OnClickListener() {
 
@@ -44,19 +84,17 @@ public class UpdateMeal extends AppCompatActivity {
                 String inputId = mealID.getText().toString();
                 String inputName = mealName.getText().toString();
 
-                //tring idVal = "[a-zA-Z ] + [0-9]";
-                String nameVal = "[a-zA-Z ]+";
+                //meal name pattern
+                String nameVal = "[a-zA-Z,,0-9]+";
 
+                //validating mealName input
                 if(inputId.isEmpty()){
                     mealID.requestFocus();
                     mealID.setError("Field cannot be empty");
-                }else if(inputName.isEmpty()){
+                }else if(inputName.isEmpty()) {
                     mealName.requestFocus();
                     mealName.setError("Field cannot be empty");
-                }/*else if(!inputId.matches(idVal)){
-                    mealID.requestFocus();
-                    mealID.setError("invalid characters!");
-                }*/else if(!inputName.matches(nameVal)){
+                }else if(!inputName.matches(nameVal)){
                     mealName.requestFocus();
                     mealName.setError("invalid characters!");
                 }
