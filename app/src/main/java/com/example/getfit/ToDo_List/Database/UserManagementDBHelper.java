@@ -41,13 +41,14 @@ public class UserManagementDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        //To do list data base
+        //create To do list table
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_TITLE + " TEXT," +
                 COLUMN_DESCRIPTION + " TEXT);";
         db.execSQL(query);
 
+        //create user table
         String USER_QUERY = " CREATE TABLE " + TABLE_NAME_USER +
                 " (" + COLUMN_USERNAME + " TEXT PRIMARY KEY," +
                 COLUMN_EMAIL + " TEXT," +
@@ -88,6 +89,7 @@ public class UserManagementDBHelper extends SQLiteOpenHelper {
     }
 
 
+    //insert user data into database table
     public boolean insertData(String username, String email, String password, String gender, float height,float weight, int age){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -110,16 +112,18 @@ public class UserManagementDBHelper extends SQLiteOpenHelper {
 
     }
 
-public boolean checkusername(String username){
+    //check username from data base in login page
+    public boolean checkusername(String username){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(" Select * from " + TABLE_NAME_USER + " where " + COLUMN_USERNAME + " = ? " , new String[] {username});
         if(cursor.getCount()>0)
             return  true;
         else
             return false;
-}
+    }
 
-public Boolean checkpassword(String username,String password){
+    //check password from data base in login page
+    public Boolean checkpassword(String username,String password){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(" Select * from " + TABLE_NAME_USER + " where " + COLUMN_USERNAME + " =  ?  AND " +COLUMN_PASSWORD + " = ? ", new String[] {username,password});
     if(cursor.getCount()>0)
@@ -144,6 +148,20 @@ public Boolean checkpassword(String username,String password){
         return cursor;
     }
 
+    //retrieve user data in user profile page
+    public Cursor retriveDataUserProfile(String username){
+        String query = "SELECT * FROM " + TABLE_NAME_USER + " WHERE " + COLUMN_USERNAME + " LIKE " + "'" + username + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }if(cursor.getCount() == 0){
+            Toast.makeText(context,"no data found!",Toast.LENGTH_SHORT).show();
+        }
+        return cursor;
+    }
+
     //To do list update in data base method
     public void updateData(String row_id, String title, String description){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -161,6 +179,27 @@ public Boolean checkpassword(String username,String password){
 
     }
 
+    //update user details
+    public void updateUserProfile(String username, String email , String gender, float height, float weight, int age){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USERNAME,username);
+        values.put(COLUMN_EMAIL,email);
+        values.put(COLUMN_GENDER,gender);
+        values.put(COLUMN_HEIGHT,height);
+        values.put(COLUMN_WEIGHT,weight);
+        values.put(COLUMN_AGE,age);
+
+        long result = db.update(TABLE_NAME_USER, values, "username=?", new String[]{username});
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
     //To do list delete one row from data base
     public void deleteOneRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -176,6 +215,16 @@ public Boolean checkpassword(String username,String password){
     public void deleteAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
+    }
+
+    public void deleteAccount(String username){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME_USER, "username=?", new String[]{username});
+        if(result == -1){
+            Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

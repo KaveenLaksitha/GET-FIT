@@ -10,13 +10,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GETFIT">
 
-
-        <activity android:name=".ToDo_List.UpdateToDo"
-            android:parentActivityName=".ToDo_List.To_Do_List"></activity>
-
         <activity
             android:name=".ToDo_List.SignIn"
             android:label="Sign In">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ToDo_List.SignUp"
+            android:label="Sign Up">
+        </activity>
+
+        <activity
+            android:name=".ToDo_List.BMI"
+            android:label="BMI" />
+
+
+        <activity
+            android:name=".ToDo_List.UserProfile"
+            android:label="User Profile"
+            android:parentActivityName=".Nutrition.MainActivity"></activity>
+
+        <activity
+            android:name=".ToDo_List.To_Do_List"
+            android:label="To Do List"
+            android:parentActivityName=".Nutrition.MainActivity">
+
         </activity>
 
         <activity
@@ -24,29 +47,13 @@
             android:label="Add List"
             android:parentActivityName=".ToDo_List.To_Do_List" />
 
-        <activity
-            android:name=".ToDo_List.To_Do_List"
-            android:label="To Do List">
+        <activity android:name=".ToDo_List.UpdateToDo"
+            android:parentActivityName=".ToDo_List.To_Do_List">
         </activity>
 
-        <activity
-            android:name=".ToDo_List.UserProfile"
-            android:label="User Profile"></activity>
-        <activity
-            android:name=".ToDo_List.BMI"
-            android:label="BMI"
-            android:parentActivityName=".Nutrition.MainActivity"/>
 
-        <activity
-            android:name=".ToDo_List.SignUp"
-            android:label="Sign Up">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
-        </activity>
         <activity android:name=".Supplement.UpdateSupplement"
             android:label="Update Supplement"
             android:parentActivityName=".Supplement.SupDashboard">
@@ -137,17 +144,6 @@
             android:label="Add Supplement"
             android:parentActivityName=".Supplement.SupDashboard">
         </activity>
-
-
-
-
-
-
-
-
-
-
-
 
 
         <meta-data

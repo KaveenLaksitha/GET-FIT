@@ -61,18 +61,22 @@ public class SignIn extends AppCompatActivity {
 
                         if((user.equals(work_username) && (pass.equals(work_password) ))){
                             Intent intent = new Intent(getApplicationContext(), WorkoutDashBoard.class);
+                            intent.putExtra("username",user);
                             startActivity(intent);
                         }
                         else if((user.equals(nutrition_username) && (pass.equals(nutrition_password) ))){
                             Intent intent = new Intent(getApplicationContext(), NutritionNavigate.class);
+                            intent.putExtra("username",user);
                             startActivity(intent);
                         }
                         else if((user.equals(sup_username) && (pass.equals(sup_password) ))){
                             Intent intent = new Intent(getApplicationContext(), SupDashboard.class);
+                            intent.putExtra("username",user);
                             startActivity(intent);
                         }
                         else {
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.putExtra("username",user);
                             startActivity(intent);
                         }
                     }else{

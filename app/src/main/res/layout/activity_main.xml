@@ -136,4 +136,14 @@
             app:cornerRadius="0dp" />
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/userprofile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMacroCal"
+        app:srcCompat="@drawable/ic_baseline_face_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

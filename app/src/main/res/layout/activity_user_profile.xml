@@ -102,6 +102,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType=""
+        android:textAlignment="center"
         app:layout_constraintBaseline_toBaselineOf="@+id/SignUptxtName"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -125,6 +126,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType=""
+        android:textAlignment="center"
         app:layout_constraintBaseline_toBaselineOf="@+id/SignUptxtEmail"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -148,6 +150,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType=""
+        android:textAlignment="center"
         app:layout_constraintBaseline_toBaselineOf="@+id/SignUptxtGender"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -172,6 +175,7 @@
         android:ems="10"
         android:hint="                                            cm"
         android:inputType="number"
+        android:textAlignment="center"
         app:layout_constraintBaseline_toBaselineOf="@+id/SignUptxtHeight"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -196,6 +200,7 @@
         android:ems="10"
         android:hint="                                            Kg"
         android:inputType="number"
+        android:textAlignment="center"
         app:layout_constraintBaseline_toBaselineOf="@+id/SignUptxtWeight"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -213,9 +218,6 @@
         app:layout_constraintTop_toBottomOf="@+id/SignUptxtWeight" />
 
 
-
-
-
     <EditText
         android:id="@+id/SignUpAge"
         android:layout_width="250dp"
@@ -223,6 +225,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="number"
+        android:textAlignment="center"
         app:layout_constraintBaseline_toBaselineOf="@+id/SignUptxtAge"
         app:layout_constraintEnd_toEndOf="parent" />
 

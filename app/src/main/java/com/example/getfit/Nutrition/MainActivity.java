@@ -6,17 +6,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.getfit.R;
 import com.example.getfit.Supplement.BMICalculator;
 import com.example.getfit.Supplement.ViewSupplement;
 import com.example.getfit.ToDo_List.To_Do_List;
+import com.example.getfit.ToDo_List.UserProfile;
 import com.example.getfit.Workout.WeightConverter;
 import com.example.getfit.Workout.WorkOuts;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnBMICal,btnWeightCon,btnMacroCal,navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
+    ImageButton userprofile;
+
+    String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,23 @@ public class MainActivity extends AppCompatActivity {
         navigate_workout = findViewById(R.id.navigate_workout);
         navigate_nutrition = findViewById(R.id.navigate_nutrition);
         navigate_supplement = findViewById(R.id.navigate_supplement);
+
+        userprofile = findViewById(R.id.userprofile);
+
+        Intent intent = getIntent();
+
+        user = intent.getStringExtra("username");
+
+
+        userprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UserProfile.class);
+                intent.putExtra("username",user);
+                startActivity(intent);
+            }
+        });
+
 
         //redirects to BMI calculator page
         btnBMICal.setOnClickListener(new View.OnClickListener() {
