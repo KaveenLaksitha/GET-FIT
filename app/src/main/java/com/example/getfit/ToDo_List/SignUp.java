@@ -77,6 +77,8 @@ public class SignUp extends AppCompatActivity {
                                 intent.putExtra("height",height.getText().toString());
                                 intent.putExtra("weight",weight.getText().toString());
                                 intent.putExtra("age",age.getText().toString());
+
+                                intent.putExtra("username",user);
                                 startActivity(intent);
                             }else{
                                 Toast.makeText(SignUp.this, "Failed to Register", Toast.LENGTH_SHORT).show();

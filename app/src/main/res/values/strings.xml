@@ -185,7 +185,7 @@
     <string name="SignInPassword">Password</string>
     <string name="SignInpassword">Password</string>
     <string name="SignInbtnSignIn">SIGN IN</string>
-    <string name="SignIntxtNewUser">New User?</string>
+    <string name="SignIntxtNewUser">Are you new to GET-FIT?</string>
     <string name="SignInNewUserSignUp">Sign Up</string>
     <string name="SignIntxtForgotpass">Forgot your password?</string>
     <string name="SignInpasswordReset">Reset</string>

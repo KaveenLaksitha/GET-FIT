@@ -31,6 +31,8 @@ public class BMI extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b_m_i);
 
+        String userName = getIntent().getStringExtra("username");
+
         SignUpHeight = findViewById(R.id.SignUpHeight);
         SignUpWeight = findViewById(R.id.SignUpWeight);
         SignUpAge = findViewById(R.id.SignUpAge);
@@ -43,6 +45,8 @@ public class BMI extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BMI.this, MainActivity.class);
+
+                intent.putExtra("username",userName);
                 startActivity(intent);
             }
         });

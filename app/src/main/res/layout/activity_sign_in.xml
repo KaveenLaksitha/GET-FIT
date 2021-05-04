@@ -8,98 +8,99 @@
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:foreground="@drawable/logoutbg"
-        app:srcCompat="@drawable/logoutbg"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="411dp"
-        android:layout_height="296dp"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-
-    <EditText
-        android:id="@+id/SignInUserName"
-        android:layout_width="250dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="310dp"
-        android:layout_marginLeft="80dp"
-        android:hint="@string/SignInuser_name"/>
-
-    <EditText
-        android:id="@+id/SignInPassword"
-        android:layout_width="250dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="80dp"
-        android:hint="@string/SignInpassword"
-        android:inputType="textPassword" />
-
-
-    <Button
-        android:id="@+id/SignIn"
-        android:layout_width="363dp"
-        android:layout_height="45dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="500dp"
-        android:text="@string/SignIn"
-        android:textSize="16sp" />
-
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="560dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/logoutbg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/logoutbg" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="411dp"
+            android:layout_height="296dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
+
+        <EditText
+            android:id="@+id/SignInUserName"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="350dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/SignInuser_name"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+        <EditText
+            android:id="@+id/SignInPassword"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/SignInpassword"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SignInUserName" />
+
+        <Button
+            android:id="@+id/SignIn"
+            android:layout_width="363dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/SignIn"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SignInPassword" />
 
         <TextView
             android:id="@+id/SignIntxtNewUser"
-            android:layout_width="275dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
             android:text="@string/SignIntxtNewUser"
-            android:layout_marginLeft="30dp"
-            android:textSize="18dp"/>
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SignIn" />
 
         <TextView
             android:id="@+id/SignIntxtNewUserLink"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
             android:text="@string/SignInNewUserSignUp"
-            android:textSize="18dp"/>
+            android:textColor="#505050"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SignIn" />
 
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="610dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/SignIntxtForgotPassword"
-            android:layout_width="275dp"
-            android:layout_height="match_parent"
-            android:text="@string/SignIntxtForgotpass"
-            android:layout_marginLeft="30dp"
-            android:textSize="18dp"/>
-
-        <TextView
-            android:id="@+id/SignIntxtForgotPasswordLink"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:text="@string/SignInpasswordReset"
-            android:textSize="18dp"/>
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </RelativeLayout>

@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GETFIT">
         <activity android:name=".SplashScreen">
-
         </activity>
 
         <!-- Start of ToDO List -->
@@ -42,7 +41,13 @@
             android:parentActivityName=".Nutrition.MainActivity" />
         <activity
             android:name=".ToDo_List.SignUp"
-            android:label="Sign Up" />
+            android:label="Sign Up">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".Supplement.UpdateSupplement"
             android:label="Update Supplement"
@@ -142,11 +147,6 @@
             android:label="Meal Plans"
             android:parentActivityName=".Nutrition.MainActivity" />
         <activity android:name=".Nutrition.MainActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!-- End of Nutrition management -->
         <meta-data

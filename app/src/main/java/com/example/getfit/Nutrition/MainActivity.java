@@ -16,6 +16,7 @@ import com.example.getfit.R;
 import com.example.getfit.Supplement.BMICalculator;
 import com.example.getfit.Supplement.ViewSupplement;
 import com.example.getfit.ToDo_List.To_Do_List;
+import com.example.getfit.ToDo_List.UserProfile;
 import com.example.getfit.Workout.WeightConverter;
 import com.example.getfit.Workout.WorkOuts;
 import com.google.android.material.navigation.NavigationView;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        String username = getIntent().getStringExtra("username");
 
         btnBMICal = findViewById(R.id.btnBMICal);
         btnWeightCon = findViewById(R.id.btnWeightCon);
@@ -59,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if(id == R.id.myProfile){
 
-                    Intent profile = new Intent(MainActivity.this,To_Do_List.class);
+                    Intent profile = new Intent(MainActivity.this, UserProfile.class);
+                    profile.putExtra("username",username);
                     startActivity(profile);
                 }else if(id == R.id.toDoNav){
 
