@@ -22,6 +22,7 @@ public class AddExercise extends AppCompatActivity {
     Button addExe_btn;
     Spinner addExe_spinner;
     Button addExeImage_btn;
+    String imgIdVal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +95,7 @@ public class AddExercise extends AppCompatActivity {
     }
 
     public void emptyFilledData(){
+        imgIdVal = addExe_etn1.getText().toString();
         addExe_etn1.setText("");
         addExe_etv1.setText("");
         addExe_etn3.setText("");
@@ -103,6 +105,7 @@ public class AddExercise extends AppCompatActivity {
 
     public void moveToUploadImage(View view){
         Intent intent = new Intent(AddExercise.this,ImageUpload.class);
+        intent.putExtra("imageID",imgIdVal);
         startActivity(intent);
     }
 

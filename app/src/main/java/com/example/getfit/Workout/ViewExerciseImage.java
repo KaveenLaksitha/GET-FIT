@@ -75,6 +75,7 @@ public class ViewExerciseImage extends AppCompatActivity {
 
     public void goToImageUpload(View view){
         Intent imageChange = new Intent(ViewExerciseImage.this,ImageUpload.class);
+        imageChange.putExtra("imageID",workOutImageID);
         startActivity(imageChange);
     }
 }

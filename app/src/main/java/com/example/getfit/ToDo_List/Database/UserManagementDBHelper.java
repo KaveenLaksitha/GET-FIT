@@ -11,7 +11,7 @@ public class UserManagementDBHelper extends SQLiteOpenHelper {
 
     private Context context;
 
-    private static final String DATABASE_NAME = "GETFIT.db";
+    private static final String DATABASE_NAME = "GETFITUser.db";
     private static final int DATABASE_VERSION = 1;
 
     //To do list data base
