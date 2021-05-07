@@ -144,9 +144,10 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+        android:layout_width="225dp"
         android:layout_height="match_parent"
         android:layout_gravity="left"
+        android:background="#BE03A9F4"
         app:headerLayout="@layout/wnavigation_header"
         app:menu="@menu/wnavigation_menu">
 

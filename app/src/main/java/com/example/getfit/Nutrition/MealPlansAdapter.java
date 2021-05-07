@@ -1,7 +1,9 @@
 package com.example.getfit.Nutrition;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.nfc.Tag;
 import android.util.Log;
@@ -50,12 +52,30 @@ public class MealPlansAdapter extends RecyclerView.Adapter<MealPlansAdapter.Meal
 
         //show delete popup acivity
         holder.nutrition_button_deleteMeal.setOnClickListener((view) ->{
-            //Log.d("clicked on id",String.valueOf(mealID.get(position)));
 
-            Intent intent = new Intent(context,DeletePopUp.class);
-            intent.putExtra("mealID",String.valueOf(mealID.get(position)));
-            intent.putExtra("mealName",String.valueOf(mealName.get(position)));
-            context.startActivity(intent);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("Delete meal plan");
+            builder.setMessage("Are you sure want to delete " + String.valueOf(mealName.get(position)) + " ?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    DBHelper myDB = new DBHelper(context);
+                    myDB.deleteMealRow(String.valueOf(mealID.get(position)));
+                    Intent intent = new Intent(context,MealList.class);
+                    context.startActivity(intent);
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            builder.create().show();
+
+
         });
     }
 
