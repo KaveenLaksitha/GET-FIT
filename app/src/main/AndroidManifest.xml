@@ -12,7 +12,6 @@
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,6 +23,10 @@
         <activity
             android:name=".ToDo_List.SignIn"
             android:label="Sign In">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ToDo_List.Add_ToDo"
@@ -41,13 +44,7 @@
             android:parentActivityName=".Nutrition.MainActivity" />
         <activity
             android:name=".ToDo_List.SignUp"
-            android:label="Sign Up">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
-        </activity>
+            android:label="Sign Up"/>
         <activity
             android:name=".Supplement.UpdateSupplement"
             android:label="Update Supplement"
