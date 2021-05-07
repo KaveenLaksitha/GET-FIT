@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
                 <Button
-                    android:id="@+id/btn1"
+                    android:id="@+id/navigate_todo"
                     android:layout_width="wrap_content"
                     android:layout_height="70dp"
                     android:layout_weight="1"
@@ -78,13 +78,13 @@
             app:srcCompat="@drawable/addicon" />
 
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/wo_imageTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:fontFamily="@font/spicy_rice"
             android:text="@string/txtList_name"
             android:textSize="30sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -95,7 +95,7 @@
             android:layout_width="414dp"
             android:layout_height="453dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/textView28"
+            app:layout_constraintTop_toBottomOf="@+id/wo_imageTitle"
             app:layout_constraintVertical_bias="0.203"
             tools:layout_editor_absoluteX="-2dp"
             tools:ignore="MissingConstraints" />

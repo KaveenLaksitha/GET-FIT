@@ -18,12 +18,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.getfit.Nutrition.ViewMeals;
 import com.example.getfit.R;
+import com.example.getfit.Supplement.ViewSupplement;
+import com.example.getfit.ToDo_List.To_Do_List;
 import com.example.getfit.Workout.DataBase.DBHelper;
 import com.example.getfit.Workout.DataBase.ModelClass;
 
 public class ViewExercise extends AppCompatActivity {
 
+    //navigation bar buttons
+    Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
+
+
+    //notification channel variables
     String name ="Notification_channel";
     String CHANNEL_ID = "ID_1";
     String description = "Sample Notification";
@@ -50,6 +58,12 @@ public class ViewExercise extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_exercise);
+
+        //navigation buttons
+        navigate_nutrition = findViewById(R.id.navigate_nutrition);
+        navigate_supplement = findViewById(R.id.navigate_supplement);
+        navigate_todo =findViewById(R.id.navigate_todo);
+        navigate_workout = findViewById(R.id.navigate_workout);
 
         Intent intent = getIntent();
 
@@ -134,7 +148,9 @@ public class ViewExercise extends AppCompatActivity {
 
         try {
             if(TextUtils.isEmpty(viewExe_etv1.getText().toString())){
-                Toast.makeText(getApplicationContext(),"Please enter no of times the exercise repeated",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Please enter no of times the exercise repeated",Toast.LENGTH_SHORT).show();
+                viewExe_etv1.requestFocus();
+                viewExe_etv1.setError("Please enter no of times the exercise repeated");
             }else{
 
                 //float total = woCalorie * Float.parseFloat(viewExe_etv1.getText().toString());
@@ -187,5 +203,50 @@ public class ViewExercise extends AppCompatActivity {
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(0,builder.build());
+    }
+
+
+    //lower navigation bar button page directions
+    protected void onResume() {
+        super.onResume();
+
+        navigate_todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewExercise.this, To_Do_List.class);
+                startActivity(intent);
+            }
+        });
+
+        navigate_workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(ViewExercise.this, WorkOuts.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(ViewExercise.this, ViewMeals.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_supplement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(ViewExercise.this, ViewSupplement.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 }

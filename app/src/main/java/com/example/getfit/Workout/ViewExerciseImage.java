@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.getfit.R;
 import com.example.getfit.Workout.DataBase.DBHelper;
@@ -14,8 +15,9 @@ import com.example.getfit.Workout.DataBase.ModelClass;
 
 public class ViewExerciseImage extends AppCompatActivity {
 
-    String workOutImageID;
+    String workOutImageID, workoutImageName;
     ImageView viewExe_ImgView;
+    TextView wo_imageTitle;
     ModelClass objectModelClass;
     Button viewExeImg_btn1;
 
@@ -27,9 +29,13 @@ public class ViewExerciseImage extends AppCompatActivity {
         Intent intent = getIntent();
 
         workOutImageID = intent.getStringExtra("imageID");
+        workoutImageName = intent.getStringExtra("imageName");
 
         viewExe_ImgView =findViewById(R.id.viewExe_ImgView);
         viewExeImg_btn1 = findViewById(R.id.viewExeImg_btn1);
+        wo_imageTitle = findViewById(R.id.wo_imageTitle);
+
+        wo_imageTitle.setText(workoutImageName);
 
         getImage(workOutImageID);
 
@@ -69,6 +75,7 @@ public class ViewExerciseImage extends AppCompatActivity {
 
     public void goToImageUpload(View view){
         Intent imageChange = new Intent(ViewExerciseImage.this,ImageUpload.class);
+        imageChange.putExtra("imageID",workOutImageID);
         startActivity(imageChange);
     }
 }

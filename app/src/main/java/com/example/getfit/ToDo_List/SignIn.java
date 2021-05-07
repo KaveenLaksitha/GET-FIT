@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.getfit.Nutrition.MainActivity;
@@ -19,6 +20,7 @@ import com.example.getfit.Workout.WorkoutDashBoard;
 public class SignIn extends AppCompatActivity {
 
     EditText username,password;
+    TextView signUp;
     Button SignIn;
 
     UserManagementDBHelper userManagementDBHelper;
@@ -26,11 +28,12 @@ public class SignIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_sign_in);
 
         username = findViewById(R.id.SignInUserName);
         password = findViewById(R.id.SignInPassword);
         SignIn =findViewById(R.id.SignIn);
+        signUp = findViewById(R.id.SignIntxtNewUserLink);
 
         userManagementDBHelper = new UserManagementDBHelper(this);
 
@@ -73,6 +76,7 @@ public class SignIn extends AppCompatActivity {
                         }
                         else {
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.putExtra("username",user);
                             startActivity(intent);
                         }
                     }else{
@@ -82,5 +86,15 @@ public class SignIn extends AppCompatActivity {
 
             }
         });
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignIn.this,SignUp.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }

@@ -22,6 +22,7 @@ public class AddExercise extends AppCompatActivity {
     Button addExe_btn;
     Spinner addExe_spinner;
     Button addExeImage_btn;
+    String imgIdVal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +47,25 @@ public class AddExercise extends AppCompatActivity {
 
         try{
             if(TextUtils.isEmpty(addExe_etn1.getText().toString())){
-                Toast.makeText(getApplicationContext(),"Please enter a workoutId",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Please enter a workoutId",Toast.LENGTH_SHORT).show();
+                addExe_etn1.requestFocus();
+                addExe_etn1.setError("Please enter a workoutId");
             }else if(TextUtils.isEmpty(addExe_etv1.getText().toString())){
-                Toast.makeText(getApplicationContext(),"Please enter a workout Name",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Please enter a workout Name",Toast.LENGTH_SHORT).show();
+                addExe_etv1.requestFocus();
+                addExe_etv1.setError("Please enter a workout Name");
             }else if(TextUtils.isEmpty(addExe_etn3.getText().toString())){
-                Toast.makeText(getApplicationContext(),"Please enter Calorie amount",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Please enter Calorie amount",Toast.LENGTH_SHORT).show();
+                addExe_etn3.requestFocus();
+                addExe_etn3.setError("Please enter Calorie amount");
             }else if(TextUtils.isEmpty(addExe_etn2.getText().toString())){
-                Toast.makeText(getApplicationContext(),"Please enter Duration",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Please enter Duration",Toast.LENGTH_SHORT).show();
+                addExe_etn2.requestFocus();
+                addExe_etn2.setError("Please enter Duration");
             }else if(TextUtils.isEmpty(addExe_emt1.getText().toString())){
-                Toast.makeText(getApplicationContext(),"Please enter Steps",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Please enter Steps",Toast.LENGTH_SHORT).show();
+                addExe_emt1.requestFocus();
+                addExe_emt1.setError("Please enter Steps");
             }else{
 
                 DBHelper dbHelper = new DBHelper(this);
@@ -84,6 +95,7 @@ public class AddExercise extends AppCompatActivity {
     }
 
     public void emptyFilledData(){
+        imgIdVal = addExe_etn1.getText().toString();
         addExe_etn1.setText("");
         addExe_etv1.setText("");
         addExe_etn3.setText("");
@@ -93,6 +105,7 @@ public class AddExercise extends AppCompatActivity {
 
     public void moveToUploadImage(View view){
         Intent intent = new Intent(AddExercise.this,ImageUpload.class);
+        intent.putExtra("imageID",imgIdVal);
         startActivity(intent);
     }
 

@@ -16,21 +16,27 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.getfit.Nutrition.ViewMeals;
 import com.example.getfit.R;
+import com.example.getfit.Supplement.ViewSupplement;
 import com.example.getfit.ToDo_List.Database.UserAdapter;
 import com.example.getfit.ToDo_List.Database.UserManagementDBHelper;
+import com.example.getfit.Workout.WorkOuts;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class To_Do_List extends AppCompatActivity {
+
+    Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
 
     RecyclerView recyclerView;
     FloatingActionButton add_button;
@@ -46,6 +52,12 @@ public class To_Do_List extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to__do__list);
 
+        navigate_todo = findViewById(R.id.navigate_todo);
+        navigate_workout = findViewById(R.id.navigate_workout);
+        navigate_nutrition = findViewById(R.id.navigate_nutrition);
+        navigate_supplement = findViewById(R.id.navigate_supplement);
+
+
         recyclerView = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.add_button);
 
@@ -56,12 +68,59 @@ public class To_Do_List extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(To_Do_List.this, Add_ToDo.class);
+
                 startActivity(intent);
             }
         });
 
+        //redirects to todoList
+        navigate_todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(To_Do_List.this, To_Do_List.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to workout
+        navigate_workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(To_Do_List.this, WorkOuts.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to meal list
+        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(To_Do_List.this, ViewMeals.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to supplement list
+        navigate_supplement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(To_Do_List.this, ViewSupplement.class);
+                startActivity(intent);
+
+            }
+        });
+
         userManagementDBHelper = new UserManagementDBHelper(To_Do_List.this);
+
         list_id = new ArrayList<>();
         list_title = new ArrayList<>();
         list_description = new ArrayList<>();
@@ -99,6 +158,7 @@ public class To_Do_List extends AppCompatActivity {
     }
 
 
+    //delete all layout
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -106,6 +166,7 @@ public class To_Do_List extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    //delete all method
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.delete_all){
@@ -117,7 +178,7 @@ public class To_Do_List extends AppCompatActivity {
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete All?");
-        builder.setMessage("Are you sure you want to delete all Data?");
+        builder.setMessage("Are you sure you want to delete all ToDo List ?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

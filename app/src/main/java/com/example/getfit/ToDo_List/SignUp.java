@@ -44,9 +44,7 @@ public class SignUp extends AppCompatActivity {
                 String ema = email.getText().toString();
                 String pass = password.getText().toString();
                 String gen = gender.getText().toString();
-                String hei = height.getText().toString();
-                String wei = weight.getText().toString();
-                String ag = age.getText().toString();
+
                 if(user.equals("") || ema.equals("") || pass.equals("") || gen.equals("")){
                     username.requestFocus();
                     username.setError("Field cannot be empty");
@@ -73,15 +71,21 @@ public class SignUp extends AppCompatActivity {
                             Boolean insert = userManagementDBHelper.insertData(user,ema,pass,gen,heit,weit,agt);
                             if(insert == true){
                                 Toast.makeText(SignUp.this, "Welcome To The GET FIT", Toast.LENGTH_SHORT).show();
+
                                 Intent intent = new Intent(getApplicationContext(), BMI.class);
                                 intent.putExtra("height",height.getText().toString());
                                 intent.putExtra("weight",weight.getText().toString());
                                 intent.putExtra("age",age.getText().toString());
+
+                                intent.putExtra("username",user);
+
                                 startActivity(intent);
                             }else{
+
                                 Toast.makeText(SignUp.this, "Failed to Register", Toast.LENGTH_SHORT).show();
                             }
                         }else{
+
                             Toast.makeText(SignUp.this, "You are Already exists! Please sign in", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -93,7 +97,9 @@ public class SignUp extends AppCompatActivity {
         SignInbtnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), SignIn.class);
+
                 startActivity(intent);
             }
         });

@@ -10,34 +10,70 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.getfit.Nutrition.MainActivity;
+import com.example.getfit.Nutrition.ViewMeals;
 import com.example.getfit.R;
+import com.example.getfit.Supplement.ViewSupplement;
+import com.example.getfit.ToDo_List.To_Do_List;
 
 public class WorkOuts extends AppCompatActivity {
 
-    Button todoBtn;
-    Button btn3;
-    Button btn4;
+    //navigation bar buttons
+    Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_outs);
 
-        btn3 = findViewById(R.id.navigate_nutrition);
-        btn4 = findViewById(R.id.navigate_supplement);
-        todoBtn =findViewById(R.id.navigate_todo);
+        navigate_nutrition = findViewById(R.id.navigate_nutrition);
+        navigate_supplement = findViewById(R.id.navigate_supplement);
+        navigate_todo =findViewById(R.id.navigate_todo);
+        navigate_workout = findViewById(R.id.navigate_workout);
     }
 
+    //lower navigation bar button page directions
     protected void onResume() {
         super.onResume();
 
-        btn4.setOnClickListener(new View.OnClickListener() {
+        navigate_todo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WorkOuts.this, WorkoutDashBoard.class);
+                Intent intent = new Intent(WorkOuts.this, To_Do_List.class);
                 startActivity(intent);
             }
         });
+
+        navigate_workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(WorkOuts.this, WorkOuts.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(WorkOuts.this, ViewMeals.class);
+                startActivity(intent);
+
+            }
+        });
+
+        navigate_supplement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(WorkOuts.this, ViewSupplement.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     public void changeFragment(View view){

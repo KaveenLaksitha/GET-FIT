@@ -9,12 +9,12 @@
 
     <ListView
         android:id="@+id/lworkouts"
-        android:layout_width="326dp"
-        android:layout_height="595dp"
+        android:layout_width="304dp"
+        android:layout_height="403dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="42dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginTop="136dp"
         android:textAlignment="center" />
 
     <TextView
@@ -24,12 +24,24 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="49dp"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="46dp"
         android:fontFamily="@font/bangers"
         android:text="@string/woAllWorkOuts"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="36sp"
         android:textStyle="normal" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addWO_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="555dp"
+        android:clickable="true"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/addicon" />
 
 </RelativeLayout>

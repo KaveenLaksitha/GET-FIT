@@ -17,6 +17,7 @@ import com.example.getfit.R;
 import com.example.getfit.Workout.DataBase.DBHelper;
 import com.example.getfit.Workout.DataBase.WorkOut;
 import com.example.getfit.Workout.DataBase.WorkOutMaster;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +27,14 @@ public class AllExercises extends AppCompatActivity {
     private ListView lworkout;
     private ArrayList<String> arrayList;
     private ArrayAdapter<String> adapter;
+    private FloatingActionButton addWO_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_exercises);
 
+        addWO_button =findViewById(R.id.addWO_button);
         lworkout = (ListView)findViewById(R.id.lworkouts);
         arrayList = new ArrayList<>();
         adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1,arrayList);
@@ -83,4 +86,15 @@ public class AllExercises extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        addWO_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backToAdd = new Intent(AllExercises.this,AddExercise.class);
+                startActivity(backToAdd);
+            }
+        });
+    }
 }

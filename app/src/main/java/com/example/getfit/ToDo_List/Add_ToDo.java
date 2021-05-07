@@ -2,20 +2,27 @@ package com.example.getfit.ToDo_List;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.getfit.Nutrition.MainActivity;
+import com.example.getfit.Nutrition.ViewMeals;
 import com.example.getfit.R;
+import com.example.getfit.Supplement.ViewSupplement;
 import com.example.getfit.ToDo_List.Database.UserManagementDBHelper;
+import com.example.getfit.Workout.WorkOuts;
 
 public class Add_ToDo extends AppCompatActivity {
 
     EditText title_input;
     EditText description_input;
     Button add_button;
+
+    Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
 
 
     @Override
@@ -28,6 +35,11 @@ public class Add_ToDo extends AppCompatActivity {
 
         add_button = findViewById(R.id.add_button);
 
+        navigate_todo = findViewById(R.id.navigate_todo);
+        navigate_workout = findViewById(R.id.navigate_workout);
+        navigate_nutrition = findViewById(R.id.navigate_nutrition);
+        navigate_supplement = findViewById(R.id.navigate_supplement);
+
         add_button.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -36,6 +48,53 @@ public class Add_ToDo extends AppCompatActivity {
                 UserManagementDBHelper userManagementDBHelper = new UserManagementDBHelper(Add_ToDo.this);
                 userManagementDBHelper.addlist(title_input.getText().toString().trim(),
                         description_input.getText().toString().trim());
+
+                title_input.setText("");
+                description_input.setText("");
+
+            }
+        });
+
+        //redirects to todoList
+        navigate_todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Add_ToDo.this, To_Do_List.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to workout
+        navigate_workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Add_ToDo.this, WorkOuts.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to meal list
+        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Add_ToDo.this, ViewMeals.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to supplement list
+        navigate_supplement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Add_ToDo.this, ViewSupplement.class);
+                startActivity(intent);
 
             }
         });

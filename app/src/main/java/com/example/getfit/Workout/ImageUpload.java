@@ -1,8 +1,10 @@
 package com.example.getfit.Workout;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -24,7 +26,7 @@ public class ImageUpload extends AppCompatActivity {
     Bitmap imageToStore;
     DBHelper dbHelper;
 
-    private static  final int PICK_IMAGE_REQUEST = 100;//any number other than 0
+    private static  final int PICK_IMAGE_REQUEST = 100;//any number other than to pass the request
     private Uri imageFilepath;
 
     @Override
@@ -32,10 +34,18 @@ public class ImageUpload extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_upload);
 
+        //getting the id for the image to to be uploaded or deleted
+        Intent imgId = getIntent();
+        String imageId = imgId.getStringExtra("imageID");
+
 
         try{
             imageDetailsET =findViewById(R.id.wo_ImageUploadEtn1);
             objectImageView =findViewById(R.id.wo_image);
+
+            if(imageId != null){
+                imageDetailsET.setText(imageId);
+            }
 
             dbHelper = new DBHelper(this);
 
@@ -85,13 +95,12 @@ public class ImageUpload extends AppCompatActivity {
             if(!imageDetailsET.getText().toString().isEmpty() && objectImageView.getDrawable() != null && imageToStore !=null)
             {
                 dbHelper.storeImage(new ModelClass(imageDetailsET.getText().toString(),imageToStore));
+                Intent intent = new Intent(ImageUpload.this,AllExercises.class);
+                startActivity(intent);
             }
             else{
                 Toast.makeText(this,"Please select image name and image" , Toast.LENGTH_SHORT).show();
             }
-
-
-
         }catch(Exception e){
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -102,10 +111,39 @@ public class ImageUpload extends AppCompatActivity {
         try{
             if(!imageDetailsET.getText().toString().isEmpty())
             {
-                dbHelper.deleteImageInfo(imageDetailsET.getText().toString());
+                AlertDialog.Builder dialog = new AlertDialog.Builder(ImageUpload.this);
+                dialog.setCancelable(false);
+                dialog.setTitle("Get Fit App Workout Image Delete");
+                dialog.setMessage("Are you sure you want to delete this image "+ imageDetailsET.getText().toString() +" ?" );
+                dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //Action for "Delete".
+                        boolean result = dbHelper.deleteImageInfo(imageDetailsET.getText().toString());
+                        if (result == false){
+                            Toast.makeText(ImageUpload.this, "There is no such image stored", Toast.LENGTH_SHORT).show();
+                        }
+                        Intent intent = new Intent(ImageUpload.this,AllExercises.class);
+                        startActivity(intent);
+                    }
+
+
+                })
+                        .setNegativeButton("Cancel ", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //Action for "Cancel".
+                                //Remain within the same activity
+                            }
+                        });
+
+                final AlertDialog alert = dialog.create();
+                alert.show();
             }
             else{
-                Toast.makeText(this,"Please enter image Id to proceed " , Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,"Please enter image Id to proceed " , Toast.LENGTH_SHORT).show();
+                imageDetailsET.requestFocus();
+                imageDetailsET.setError("Please enter image Id to proceed ");
             }
 
 

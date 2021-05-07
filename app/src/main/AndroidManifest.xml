@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.getfit">
-    <!-- Camera storage permisiions for image pick -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!--Camera storage permisiions for image pick-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -12,16 +13,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GETFIT">
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Supplement.SupplementDetailsView"></activity>
         <activity android:name=".Supplement.Supplementview_user">
 
-        </activity>
+        <!-- Start of ToDO List -->
         <activity
             android:name=".ToDo_List.UpdateToDo"
             android:parentActivityName=".ToDo_List.To_Do_List" />
         <activity
             android:name=".ToDo_List.SignIn"
-            android:label="Sign In" />
+            android:label="Sign In">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ToDo_List.Add_ToDo"
             android:label="Add List"
@@ -38,38 +51,43 @@
             android:parentActivityName=".Nutrition.MainActivity" />
         <activity
             android:name=".ToDo_List.SignUp"
+            android:label="Sign Up">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Supplement.UpdateSupplement"
             android:label="Sign Up" />
         <activity
             android:name=".Supplement.UpdateSupplement"
             android:label="Update Supplement"
             android:parentActivityName=".Supplement.SupDashboard" />
+        <!-- end of ToDO List -->
+
+        <!-- Start of Supplement management -->
         <activity
             android:name=".Supplement.ViewSupplement"
             android:label="View Supplement"
-            android:parentActivityName=".Supplement.SupDashboard">
-
-
-        </activity>
+            android:parentActivityName=".Supplement.SupDashboard" />
         <activity
             android:name=".Supplement.BMICalculator"
             android:label="BMI Calculator"
-            android:parentActivityName=".Nutrition.MainActivity" >
-
-        </activity>
-        <activity android:name=".Supplement.SupDashboard">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-
-
-        </activity>
+            android:parentActivityName=".Nutrition.MainActivity" />
+        <activity android:name=".Supplement.SupDashboard" />
         <activity
             android:name=".Supplement.AddSupplement"
             android:label="Add Supplement"
-            android:parentActivityName=".Supplement.SupDashboard">
+            android:parentActivityName=".Supplement.SupDashboard" />
+        <!-- End of Supplement management -->
+
+        <!-- Start of Nutrition management -->
+        <activity
+            android:name=".Workout.ViewExerciseImage"
+            android:parentActivityName=".Nutrition.MainActivity" >
+
         </activity>
         <activity android:name=".Nutrition.DeletePopUp" />
         <activity
@@ -114,7 +132,19 @@
         <activity
             android:name=".Workout.WorkoutDashBoard"
             android:label="WorkOut DashBoard" />
+        <!-- End of WorkOut management -->
+
+        <!-- Start of Nutrition management -->
         <activity android:name=".Nutrition.NutritionNavigate" />
+        <activity
+            android:name=".Nutrition.user_meal_view"
+            android:label="Meal Plan Details"
+            android:parentActivityName=".Nutrition.ViewMeals"></activity>
+
+        <activity
+            android:name=".Nutrition.macroCal"
+            android:label="Macro Finder"
+            android:parentActivityName=".Nutrition.MainActivity" />
         <activity
             android:name=".Nutrition.macros"
             android:label="Added Macros"
@@ -135,12 +165,18 @@
             android:name=".Nutrition.MealList"
             android:label="Added Meal Plans"
             android:parentActivityName=".Nutrition.NutritionNavigate" />
-        <activity android:name=".Nutrition.ViewMeals" />
-        <activity android:name=".Nutrition.MainActivity" />
-
+        <activity
+            android:name=".Nutrition.ViewMeals"
+            android:label="Meal Plans"
+            android:parentActivityName=".Nutrition.MainActivity" />
+        <activity android:name=".Nutrition.MainActivity" >
+        </activity>
+        <!-- End of Nutrition management -->
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" /> <!-- Image cropper activity -->
+            android:resource="@array/preloaded_fonts" />
+
+        <!--Image cropper activity-->
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
     </application>
 

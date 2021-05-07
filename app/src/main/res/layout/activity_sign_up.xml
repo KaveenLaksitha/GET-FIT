@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ToDo_List.SignUp">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="@drawable/logoutbg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoutbg" />
+
 
     <TextView
         android:id="@+id/SignUp"
@@ -143,14 +154,13 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 
-
     <EditText
         android:id="@+id/SignUpPassword"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="@string/SignUpPassword"
+        android:inputType="textPassword"
         app:layout_constraintBaseline_toBaselineOf="@+id/SignUptxtPassword"
         app:layout_constraintEnd_toEndOf="parent" />
 
