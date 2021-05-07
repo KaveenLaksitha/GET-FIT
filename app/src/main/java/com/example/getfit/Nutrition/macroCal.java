@@ -64,15 +64,15 @@ public class macroCal extends AppCompatActivity {
                 if(cursor.moveToFirst())
                 {
 
-                    Float energyVal = Float.valueOf(cursor.getString(2))/150 * servings;
-                    Float fatVal = Float.valueOf(cursor.getString(3))/150 * servings;
-                    Float carbyVal = Float.valueOf(cursor.getString(4))/150 * servings;
-                    Float fiberVal = Float.valueOf(cursor.getString(5))/150 * servings;
-                    Float proteinVal = Float.valueOf(cursor.getString(6))/150 * servings;
-                    Float sodiumVal = Float.valueOf(cursor.getString(7))/150 * servings;
-                    Float cholesterolVal = Float.valueOf(cursor.getString(8))/150 * servings;
-                    Float potasiumVal = Float.valueOf(cursor.getString(9))/150 * servings;
-                    Float caloriesVal = Float.valueOf(cursor.getString(10))/150 * servings;
+                    Float energyVal = getCalories(Float.valueOf(cursor.getString(2)),servings);
+                    Float fatVal = getCalories(Float.valueOf(cursor.getString(3)),servings);
+                    Float carbyVal = getCalories(Float.valueOf(cursor.getString(4)),servings);
+                    Float fiberVal = getCalories(Float.valueOf(cursor.getString(5)),servings);
+                    Float proteinVal = getCalories(Float.valueOf(cursor.getString(6)),servings);
+                    Float sodiumVal = getCalories(Float.valueOf(cursor.getString(7)),servings);
+                    Float cholesterolVal = getCalories(Float.valueOf(cursor.getString(8)),servings);
+                    Float potasiumVal = getCalories(Float.valueOf(cursor.getString(9)),servings);
+                    Float caloriesVal = getCalories(Float.valueOf(cursor.getString(10)),servings);
 
                     txtViewEnergy.setText(String.valueOf(energyVal));
                     txtViewFat.setText(String.valueOf(fatVal));
@@ -132,4 +132,11 @@ public class macroCal extends AppCompatActivity {
             }
         });
     }
+
+    public float getCalories(float value, float servings){
+
+        return (float) value / 150 * servings;
+    }
+
+
 }

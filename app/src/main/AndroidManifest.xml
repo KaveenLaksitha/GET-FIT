@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GETFIT">
         <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!-- Start of ToDO List -->
@@ -19,11 +24,6 @@
         <activity
             android:name=".ToDo_List.SignIn"
             android:label="Sign In">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ToDo_List.Add_ToDo"
@@ -45,7 +45,7 @@
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
         </activity>
         <activity
@@ -117,7 +117,6 @@
             android:name=".Nutrition.user_meal_view"
             android:label="Meal Plan Details"
             android:parentActivityName=".Nutrition.ViewMeals"></activity>
-        <activity android:name=".Nutrition.DeletePopUp" />
         <activity
             android:name=".Nutrition.macroCal"
             android:label="Macro Finder"
