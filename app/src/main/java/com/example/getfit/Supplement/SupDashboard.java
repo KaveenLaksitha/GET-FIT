@@ -12,7 +12,7 @@ import com.example.getfit.R;
 
 public class SupDashboard extends AppCompatActivity {
 
-    Button addsup1, viewsup1, updatesup1 ;
+    Button addsup1, viewsup1 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class SupDashboard extends AppCompatActivity {
 
         addsup1 = findViewById(R.id.addsup1);
         viewsup1 = findViewById(R.id.viewsup1);
-        updatesup1 = findViewById(R.id.updatesup1);
+
 
         addsup1.setOnClickListener(new OnClickListener() {
             @Override
@@ -40,14 +40,6 @@ public class SupDashboard extends AppCompatActivity {
             }
         });
 
-        updatesup1.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SupDashboard.this,UpdateSupplement.class);
-                startActivity(intent);
-
-            }
-        });
 
 
 

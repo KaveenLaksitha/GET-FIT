@@ -188,5 +188,6 @@
     <string name="SignInpasswordReset">Reset</string>
     <string name="txtList_name">To Do List</string>
     <string name="SignIn">SIGN IN</string>
+    <string name="supplement_txt_name">Supplement</string>
 
 </resources>

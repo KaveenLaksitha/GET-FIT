@@ -4,4 +4,5 @@
     <item name="name_input" type="id"></item>
     <item name="price_input" type="id"></item>
     <item name="add_button" type="id"></item>
+
 </resources>

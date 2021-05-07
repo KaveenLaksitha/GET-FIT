@@ -1,24 +1,39 @@
 package com.example.getfit.Supplement;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.getfit.R;
+import com.example.getfit.ToDo_List.Database.UserAdapter;
+import com.example.getfit.ToDo_List.To_Do_List;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 public class ViewSupplement extends AppCompatActivity {
 
-    MyDatabaseHelper myDB;
-    ArrayList<String> sup_id, sup_name, sup_price, sup_description;
-    Button add_button;
+    FloatingActionButton add_sup_btn;
+
+
+    ArrayList<String> sup_id,sup_name, sup_price, sup_description;
     CustomAdapter customAdapter;
+    RecyclerView recycler;
+
+    MyDatabaseHelper myDB;
 
 
     @Override
@@ -26,6 +41,16 @@ public class ViewSupplement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_supplement);
 
+        recycler = findViewById(R.id.recycler);
+        add_sup_btn = findViewById(R.id.add_sup_btn);
+
+        add_sup_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(ViewSupplement.this, AddSupplement.class);
+                startActivity(myIntent);
+            }
+        });
 
         myDB = new MyDatabaseHelper(ViewSupplement.this);
 
@@ -36,9 +61,19 @@ public class ViewSupplement extends AppCompatActivity {
 
         storeDataInArray();
 
+        customAdapter = new CustomAdapter(ViewSupplement.this, this,sup_id, sup_name, sup_price, sup_description);
+        recycler.setAdapter(customAdapter);
+        recycler.setLayoutManager(new LinearLayoutManager(ViewSupplement.this));
 
 
+    }
 
+
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            recreate();
+        }
     }
 
     void storeDataInArray(){
@@ -58,5 +93,52 @@ public class ViewSupplement extends AppCompatActivity {
 
 
 }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_supplement,menu);
+        return  super.onCreateOptionsMenu(menu);
+
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+
+
+
+        if(item.getItemId() == R.id.delete_all){
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Confirm deletion");
+            builder.setMessage("Are you sure want to delete all ?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    MyDatabaseHelper myDB = new MyDatabaseHelper(ViewSupplement.this);
+                    myDB.deleteAllData();
+                    finish();
+                    Intent intent = new Intent(ViewSupplement.this,ViewSupplement.class);
+                    startActivity(intent);
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            builder.create().show();
+
+
+            /*Toast.makeText(this,"Delete",Toast.LENGTH_SHORT).show();
+            MyDatabaseHelper myDB = new MyDatabaseHelper(this);
+            myDB.deleteAllData();
+            //Refresh Activity
+            Intent intent = new Intent(this,ViewSupplement.class);
+            startActivity(intent);
+            finish();*/
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
 
