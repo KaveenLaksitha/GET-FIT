@@ -11,15 +11,17 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.getfit.Nutrition.MainActivity;
 import com.example.getfit.R;
 
 public class BMI extends AppCompatActivity {
 
-    EditText SignUpHeight,SignUpWeight,SignUpAge;
-    TextView BMIResult , txtResultHbmi;
-    Button button;
+    TextView SignUpHeight, SignUpWeight, SignUpAge;
+    TextView BMIResult, txtResultHbmi, txtResultHweight;
+    Button getfitBMI;
 
-    String H,W,A;
+
+    String H, W, A;
 
     float finalheight, finalweight;
 
@@ -29,13 +31,25 @@ public class BMI extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b_m_i);
 
+        String userName = getIntent().getStringExtra("username");
+
         SignUpHeight = findViewById(R.id.SignUpHeight);
         SignUpWeight = findViewById(R.id.SignUpWeight);
         SignUpAge = findViewById(R.id.SignUpAge);
         BMIResult = findViewById(R.id.BMIResult);
         txtResultHbmi = findViewById(R.id.txtResultHbmi);
-        button = findViewById(R.id.button);
+        txtResultHweight = findViewById(R.id.txtResultHweight);
+        getfitBMI = findViewById(R.id.getfitBMI);
 
+        getfitBMI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BMI.this, MainActivity.class);
+
+                intent.putExtra("username",userName);
+                startActivity(intent);
+            }
+        });
 
         Intent intent = getIntent();
 
@@ -46,21 +60,13 @@ public class BMI extends AppCompatActivity {
         SignUpHeight.setText(H);
         SignUpWeight.setText(W);
         SignUpAge.setText(A);
+        finalheight = Float.valueOf(H);
+        finalweight = Float.valueOf(W);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        float healthybmi = calculate(finalheight, finalweight);
 
-                finalheight = Float.valueOf(H);
-                finalweight = Float.valueOf(W);
-
-                float healthybmi = calculate(finalheight, finalweight);
-
-                BMIResult.setText("BMI =" + healthybmi);
-                showhealthyBMI(healthybmi);
-
-            }
-        });
+        BMIResult.setText("BMI = " + healthybmi);
+        showhealthyBMI(healthybmi, finalheight);
 
 
     }
@@ -69,15 +75,176 @@ public class BMI extends AppCompatActivity {
         return finalweight / ((finalheight / 100) * (finalheight / 100));
     }
 
-    public void showhealthyBMI(float healthybmi) {
+    public void showhealthyBMI(float healthybmi, float finalheight) {
         if ((healthybmi == 18.49) || (healthybmi < 18.49)) {
             txtResultHbmi.setText("Under Weight");
-        } else if (((healthybmi == 18.5) || (healthybmi > 18.5)) && ((healthybmi == 24.99) || (healthybmi < 24.99))) {
+            {
+                if (finalheight < 149) {
+                    txtResultHweight.setText("40kg - 52kg");
+                } else if ((finalheight > 148)  && (finalheight < 152)) {
+                    txtResultHweight.setText("41kg - 54kg");
+                } else if ((finalheight > 151)  && (finalheight < 154)) {
+                    txtResultHweight.setText("45kg - 56kg");
+                } else if ((finalheight > 153)  && (finalheight < 157)) {
+                    txtResultHweight.setText("45kg - 59kg");
+                } else if ((finalheight > 156)  && (finalheight < 160)) {
+                    txtResultHweight.setText("47kg - 61kg");
+                } else if ((finalheight > 159)  && (finalheight < 162)) {
+                    txtResultHweight.setText("47kg - 63kg");
+                } else if ((finalheight > 161)  && (finalheight < 165)) {
+                    txtResultHweight.setText("50kg - 65kg");
+                } else if ((finalheight > 164)  && (finalheight < 167)) {
+                    txtResultHweight.setText("52kg - 65kg");
+                } else if ((finalheight > 166)  && (finalheight < 170)) {
+                    txtResultHweight.setText("52kg - 68kg");
+                } else if ((finalheight > 169) && (finalheight < 172)) {
+                    txtResultHweight.setText("54kg - 70kg");
+                } else if ((finalheight > 171) && (finalheight < 177)) {
+                    txtResultHweight.setText("56kg - 72kg");
+                } else if ((finalheight > 176)  && (finalheight < 180)) {
+                    txtResultHweight.setText("59kg - 75kg");
+                } else if ((finalheight > 179)  && (finalheight < 182)) {
+                    txtResultHweight.setText("59kg - 77kg");
+                } else if ((finalheight > 181)  && (finalheight < 185)) {
+                    txtResultHweight.setText("63kg - 81kg");
+                } else if ((finalheight > 184)  && (finalheight < 187)) {
+                    txtResultHweight.setText("63kg - 84kg");
+                } else if ((finalheight > 186)  && (finalheight < 190)) {
+                    txtResultHweight.setText("65kg - 86kg");
+                } else if ((finalheight > 189) && (finalheight < 193)) {
+                    txtResultHweight.setText("68kg - 88kg");
+                } else {
+                    txtResultHweight.setText("70kg - 90kg");
+                }
+            }
+        }
+
+        else if (((healthybmi == 18.5) || (healthybmi > 18.5)) && ((healthybmi == 24.99) || (healthybmi < 24.99))) {
             txtResultHbmi.setText("Normal Weight");
-        } else if (((healthybmi == 25) || (healthybmi > 25)) && ((healthybmi == 29.99) || (healthybmi < 29.99))) {
+            {
+                if (finalheight < 149) {
+                    txtResultHweight.setText("40kg - 52kg");
+                } else if ((finalheight > 148)  && (finalheight < 152)) {
+                    txtResultHweight.setText("41kg - 54kg");
+                } else if ((finalheight > 151)  && (finalheight < 154)) {
+                    txtResultHweight.setText("45kg - 56kg");
+                } else if ((finalheight > 153)  && (finalheight < 157)) {
+                    txtResultHweight.setText("45kg - 59kg");
+                } else if ((finalheight > 156)  && (finalheight < 160)) {
+                    txtResultHweight.setText("47kg - 61kg");
+                } else if ((finalheight > 159)  && (finalheight < 162)) {
+                    txtResultHweight.setText("47kg - 63kg");
+                } else if ((finalheight > 161)  && (finalheight < 165)) {
+                    txtResultHweight.setText("50kg - 65kg");
+                } else if ((finalheight > 164)  && (finalheight < 167)) {
+                    txtResultHweight.setText("52kg - 65kg");
+                } else if ((finalheight > 166)  && (finalheight < 170)) {
+                    txtResultHweight.setText("52kg - 68kg");
+                } else if ((finalheight > 169) && (finalheight < 172)) {
+                    txtResultHweight.setText("54kg - 70kg");
+                } else if ((finalheight > 171) && (finalheight < 177)) {
+                    txtResultHweight.setText("56kg - 72kg");
+                } else if ((finalheight > 176)  && (finalheight < 180)) {
+                    txtResultHweight.setText("59kg - 75kg");
+                } else if ((finalheight > 179)  && (finalheight < 182)) {
+                    txtResultHweight.setText("59kg - 77kg");
+                } else if ((finalheight > 181)  && (finalheight < 185)) {
+                    txtResultHweight.setText("63kg - 81kg");
+                } else if ((finalheight > 184)  && (finalheight < 187)) {
+                    txtResultHweight.setText("63kg - 84kg");
+                } else if ((finalheight > 186)  && (finalheight < 190)) {
+                    txtResultHweight.setText("65kg - 86kg");
+                } else if ((finalheight > 189) && (finalheight < 193)) {
+                    txtResultHweight.setText("68kg - 88kg");
+                } else {
+                    txtResultHweight.setText("70kg - 90kg");
+                }
+            }
+        }
+        else if (((healthybmi == 25) || (healthybmi > 25)) && ((healthybmi == 29.99) || (healthybmi < 29.99))) {
             txtResultHbmi.setText("OVER WEIGHT");
-        } else {
+            {
+                if (finalheight < 149) {
+                    txtResultHweight.setText("40kg - 52kg");
+                } else if ((finalheight > 148)  && (finalheight < 152)) {
+                    txtResultHweight.setText("41kg - 54kg");
+                } else if ((finalheight > 151)  && (finalheight < 154)) {
+                    txtResultHweight.setText("45kg - 56kg");
+                } else if ((finalheight > 153)  && (finalheight < 157)) {
+                    txtResultHweight.setText("45kg - 59kg");
+                } else if ((finalheight > 156)  && (finalheight < 160)) {
+                    txtResultHweight.setText("47kg - 61kg");
+                } else if ((finalheight > 159)  && (finalheight < 162)) {
+                    txtResultHweight.setText("47kg - 63kg");
+                } else if ((finalheight > 161)  && (finalheight < 165)) {
+                    txtResultHweight.setText("50kg - 65kg");
+                } else if ((finalheight > 164)  && (finalheight < 167)) {
+                    txtResultHweight.setText("52kg - 65kg");
+                } else if ((finalheight > 166)  && (finalheight < 170)) {
+                    txtResultHweight.setText("52kg - 68kg");
+                } else if ((finalheight > 169) && (finalheight < 172)) {
+                    txtResultHweight.setText("54kg - 70kg");
+                } else if ((finalheight > 171) && (finalheight < 177)) {
+                    txtResultHweight.setText("56kg - 72kg");
+                } else if ((finalheight > 176)  && (finalheight < 180)) {
+                    txtResultHweight.setText("59kg - 75kg");
+                } else if ((finalheight > 179)  && (finalheight < 182)) {
+                    txtResultHweight.setText("59kg - 77kg");
+                } else if ((finalheight > 181)  && (finalheight < 185)) {
+                    txtResultHweight.setText("63kg - 81kg");
+                } else if ((finalheight > 184)  && (finalheight < 187)) {
+                    txtResultHweight.setText("63kg - 84kg");
+                } else if ((finalheight > 186)  && (finalheight < 190)) {
+                    txtResultHweight.setText("65kg - 86kg");
+                } else if ((finalheight > 189) && (finalheight < 193)) {
+                    txtResultHweight.setText("68kg - 88kg");
+                } else {
+                    txtResultHweight.setText("70kg - 90kg");
+                }
+            }
+        }
+
+        else {
             txtResultHbmi.setText("OBESE");
+                {
+                    if (finalheight < 149) {
+                        txtResultHweight.setText("40kg - 52kg");
+                    } else if ((finalheight > 148)  && (finalheight < 152)) {
+                        txtResultHweight.setText("41kg - 54kg");
+                    } else if ((finalheight > 151)  && (finalheight < 154)) {
+                        txtResultHweight.setText("45kg - 56kg");
+                    } else if ((finalheight > 153)  && (finalheight < 157)) {
+                        txtResultHweight.setText("45kg - 59kg");
+                    } else if ((finalheight > 156)  && (finalheight < 160)) {
+                        txtResultHweight.setText("47kg - 61kg");
+                    } else if ((finalheight > 159)  && (finalheight < 162)) {
+                        txtResultHweight.setText("47kg - 63kg");
+                    } else if ((finalheight > 161)  && (finalheight < 165)) {
+                        txtResultHweight.setText("50kg - 65kg");
+                    } else if ((finalheight > 164)  && (finalheight < 167)) {
+                        txtResultHweight.setText("52kg - 65kg");
+                    } else if ((finalheight > 166)  && (finalheight < 170)) {
+                        txtResultHweight.setText("52kg - 68kg");
+                    } else if ((finalheight > 169) && (finalheight < 172)) {
+                        txtResultHweight.setText("54kg - 70kg");
+                    } else if ((finalheight > 171) && (finalheight < 177)) {
+                        txtResultHweight.setText("56kg - 72kg");
+                    } else if ((finalheight > 176)  && (finalheight < 180)) {
+                        txtResultHweight.setText("59kg - 75kg");
+                    } else if ((finalheight > 179)  && (finalheight < 182)) {
+                        txtResultHweight.setText("59kg - 77kg");
+                    } else if ((finalheight > 181)  && (finalheight < 185)) {
+                        txtResultHweight.setText("63kg - 81kg");
+                    } else if ((finalheight > 184)  && (finalheight < 187)) {
+                        txtResultHweight.setText("63kg - 84kg");
+                    } else if ((finalheight > 186)  && (finalheight < 190)) {
+                        txtResultHweight.setText("65kg - 86kg");
+                    } else if ((finalheight > 189) && (finalheight < 193)) {
+                        txtResultHweight.setText("68kg - 88kg");
+                    } else {
+                        txtResultHweight.setText("70kg - 90kg");
+                    }
+            }
         }
     }
 }
