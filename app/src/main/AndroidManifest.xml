@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.getfit">
 
+    <!--Camera storage permisiions for image pick-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,48 +17,63 @@
         </activity>
 
         <!-- Start of ToDO List -->
-        <activity
-            android:name=".ToDo_List.UpdateToDo"
-            android:parentActivityName=".ToDo_List.To_Do_List" />
+
         <activity
             android:name=".ToDo_List.SignIn"
             android:label="Sign In">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".ToDo_List.SignUp"
+            android:label="Sign Up">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ToDo_List.BMI"
+            android:label="BMI" />
+
+        <activity
+            android:name=".ToDo_List.UserProfile"
+            android:label="User Profile"
+            android:parentActivityName=".Nutrition.MainActivity"/>
+
+        <activity
+            android:name=".ToDo_List.To_Do_List"
+            android:label="To Do List"
+            android:parentActivityName=".Nutrition.MainActivity"/>
+
         <activity
             android:name=".ToDo_List.Add_ToDo"
             android:label="Add List"
             android:parentActivityName=".ToDo_List.To_Do_List" />
-        <activity
-            android:name=".ToDo_List.To_Do_List"
-            android:label="To Do List" />
-        <activity
-            android:name=".ToDo_List.UserProfile"
-            android:label="User Profile" />
-        <activity
-            android:name=".ToDo_List.BMI"
-            android:label="BMI"
-            android:parentActivityName=".Nutrition.MainActivity" />
-        <activity
-            android:name=".ToDo_List.SignUp"
-            android:label="Sign Up">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+        <activity
+            android:name=".ToDo_List.UpdateToDo"
+            android:parentActivityName=".ToDo_List.To_Do_List" />
+
+        <!-- end of ToDO List -->
+
+
+
+
+        <!-- Start of Supplement management -->
+
         <activity
             android:name=".Supplement.UpdateSupplement"
             android:label="Update Supplement"
             android:parentActivityName=".Supplement.SupDashboard" />
-        <!-- end of ToDO List -->
 
-        <!-- Start of Supplement management -->
         <activity
             android:name=".Supplement.ViewSupplement"
             android:label="View Supplement"
@@ -152,6 +171,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <!--Image cropper activity-->
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
     </application>
 
 </manifest>
