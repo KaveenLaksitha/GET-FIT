@@ -96,7 +96,7 @@ public class UserManagementDBHelper extends SQLiteOpenHelper {
         if(result ==  -1){
             Toast.makeText(context, "Failed to added", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(context, "List Added successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,  title + " Added successfully", Toast.LENGTH_SHORT).show();
         }
 
     }

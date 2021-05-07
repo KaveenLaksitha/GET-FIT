@@ -11,11 +11,12 @@
             android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#2AFFFFFF"
             android:foreground="@drawable/todo3"
             app:srcCompat="@drawable/todo3"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp"
-            tools:ignore="MissingConstraints" />
+            tools:layout_editor_absoluteY="0dp" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -94,11 +95,12 @@
             android:id="@+id/recyclerView"
             android:layout_width="414dp"
             android:layout_height="453dp"
+            android:alpha="0.7"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintTop_toBottomOf="@+id/wo_imageTitle"
             app:layout_constraintVertical_bias="0.203"
-            tools:layout_editor_absoluteX="-2dp"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-2dp" />
 
         <ImageView
             android:id="@+id/empty_imageview"

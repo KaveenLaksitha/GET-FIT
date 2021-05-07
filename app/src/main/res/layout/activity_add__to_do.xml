@@ -119,13 +119,14 @@
 
                 <EditText
                     android:id="@+id/description_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="198dp"
+                    android:layout_height="100dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:hint="Description"
+                    android:inputType="textMultiLine"
                     android:textColor="@android:color/background_light"
                     android:textColorHint="@android:color/darker_gray" />
             </RelativeLayout>

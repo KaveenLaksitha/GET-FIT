@@ -70,7 +70,7 @@ public class SignUp extends AppCompatActivity {
                             int agt = Integer.valueOf(age.getText().toString());
                             Boolean insert = userManagementDBHelper.insertData(user,ema,pass,gen,heit,weit,agt);
                             if(insert == true){
-                                Toast.makeText(SignUp.this, "Welcome To The GET FIT", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUp.this, "Welcome to the GET FIT", Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(getApplicationContext(), BMI.class);
                                 intent.putExtra("height",height.getText().toString());
