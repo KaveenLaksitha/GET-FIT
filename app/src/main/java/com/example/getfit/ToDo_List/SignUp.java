@@ -14,6 +14,7 @@ import com.example.getfit.ToDo_List.Database.UserManagementDBHelper;
 
 public class SignUp extends AppCompatActivity {
 
+    //variables
     EditText username,email,password,gender,height,weight,age;
     Button SignUpbtnSignUp, SignInbtnSignIn;
 

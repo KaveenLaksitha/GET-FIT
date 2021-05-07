@@ -51,11 +51,6 @@
         <activity
             android:name=".ToDo_List.SignUp"
             android:label="Sign Up">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity
             android:name=".Supplement.UpdateSupplement"
@@ -79,7 +74,7 @@
             android:parentActivityName=".Supplement.SupDashboard" />
         <!-- End of Supplement management -->
 
-        <!-- Start of Nutrition management -->
+        <!-- Start of Workout management -->
         <activity
             android:name=".Workout.ViewExerciseImage"
             android:label="WorkOut Image"

@@ -16,6 +16,7 @@ import com.example.getfit.R;
 
 public class BMI extends AppCompatActivity {
 
+    //variables
     TextView SignUpHeight, SignUpWeight, SignUpAge;
     TextView BMIResult, txtResultHbmi, txtResultHweight;
     Button getfitBMI;
@@ -33,6 +34,7 @@ public class BMI extends AppCompatActivity {
 
         String userName = getIntent().getStringExtra("username");
 
+        //find view by id
         SignUpHeight = findViewById(R.id.SignUpHeight);
         SignUpWeight = findViewById(R.id.SignUpWeight);
         SignUpAge = findViewById(R.id.SignUpAge);
@@ -41,6 +43,7 @@ public class BMI extends AppCompatActivity {
         txtResultHweight = findViewById(R.id.txtResultHweight);
         getfitBMI = findViewById(R.id.getfitBMI);
 
+        //redirects to main activity
         getfitBMI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,10 +74,12 @@ public class BMI extends AppCompatActivity {
 
     }
 
+    //bmi calculation method
     public float calculate(float finalheight, float finalweight) {
         return finalweight / ((finalheight / 100) * (finalheight / 100));
     }
 
+    //check bmi
     public void showhealthyBMI(float healthybmi, float finalheight) {
         if ((healthybmi == 18.49) || (healthybmi < 18.49)) {
             txtResultHbmi.setText("Under Weight");

@@ -18,6 +18,7 @@ import com.example.getfit.Workout.WorkOuts;
 
 public class Add_ToDo extends AppCompatActivity {
 
+    //variables
     EditText title_input;
     EditText description_input;
     Button add_button;
@@ -30,6 +31,7 @@ public class Add_ToDo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__to_do);
 
+        //find view by id
         title_input = findViewById(R.id.title_input);
         description_input = findViewById(R.id.description_input);
 
@@ -40,6 +42,7 @@ public class Add_ToDo extends AppCompatActivity {
         navigate_nutrition = findViewById(R.id.navigate_nutrition);
         navigate_supplement = findViewById(R.id.navigate_supplement);
 
+        //method to add data to db
         add_button.setOnClickListener(new View.OnClickListener(){
 
             @Override

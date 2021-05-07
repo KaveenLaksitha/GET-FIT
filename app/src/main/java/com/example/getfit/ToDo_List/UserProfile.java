@@ -42,6 +42,7 @@ public class UserProfile extends AppCompatActivity {
     Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
 
 
+    //variables
     String user,ema,gen;
     float wei,hei;
     int age;

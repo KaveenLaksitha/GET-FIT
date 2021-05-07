@@ -36,6 +36,7 @@ import java.util.List;
 
 public class To_Do_List extends AppCompatActivity {
 
+    //variables
     Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
 
     RecyclerView recyclerView;

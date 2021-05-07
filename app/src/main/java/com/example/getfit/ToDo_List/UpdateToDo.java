@@ -21,6 +21,7 @@ import com.example.getfit.Workout.WorkOuts;
 
 public class UpdateToDo extends AppCompatActivity {
 
+    //variables
     EditText title_input, description_input;
     Button update_button, delete_button;
 

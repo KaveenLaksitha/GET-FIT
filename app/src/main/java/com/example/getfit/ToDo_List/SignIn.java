@@ -19,6 +19,7 @@ import com.example.getfit.Workout.WorkoutDashBoard;
 
 public class SignIn extends AppCompatActivity {
 
+    //variables
     EditText username,password;
     TextView signUp;
     Button SignIn;
@@ -30,11 +31,13 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        //find view by id
         username = findViewById(R.id.SignInUserName);
         password = findViewById(R.id.SignInPassword);
         SignIn =findViewById(R.id.SignIn);
         signUp = findViewById(R.id.SignIntxtNewUserLink);
 
+        //create object
         userManagementDBHelper = new UserManagementDBHelper(this);
 
         SignIn.setOnClickListener(new View.OnClickListener() {
