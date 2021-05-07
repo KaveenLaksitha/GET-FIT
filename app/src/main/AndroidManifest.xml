@@ -125,7 +125,7 @@
             android:name=".Nutrition.user_meal_view"
             android:label="Meal Plan Details"
             android:parentActivityName=".Nutrition.ViewMeals"></activity>
-        <activity android:name=".Nutrition.DeletePopUp" />
+
         <activity
             android:name=".Nutrition.macroCal"
             android:label="Macro Finder"
