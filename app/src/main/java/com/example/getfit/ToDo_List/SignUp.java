@@ -58,7 +58,6 @@ public class SignUp extends AppCompatActivity {
                             float heit = Float.valueOf(height.getText().toString());
                             float weit = Float.valueOf(weight.getText().toString());
                             int agt = Integer.valueOf(age.getText().toString());
-                            //int value = ema.indexOf("@");
 
                             String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 

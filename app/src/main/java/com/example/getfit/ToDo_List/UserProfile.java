@@ -145,7 +145,9 @@ public class UserProfile extends AppCompatActivity {
 
                 inputData();
 
+                //get data
                 userimage = "" + SignUpName.getText().toString().trim();
+                //save to db
                 userManagementDBHelper.update_photo(
                         "" + userimage,
                         "" + imageUri);
@@ -221,16 +223,19 @@ public class UserProfile extends AppCompatActivity {
     }
 
     private void imagePickDialog() {
+        //option to display in dialog
         String[] options = {"Camera" , "Gallery"};
-
+        //dialog
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-
+        //title
         builder.setTitle("Pick Image From");
-
+        //set item/options
         builder.setItems(options, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                //handle click
                 if (which == 0){
+                    //camera click
                     if(!checkcamerapeemission()){
                         requestCamerapermission();
                     }else{
@@ -257,21 +262,24 @@ public class UserProfile extends AppCompatActivity {
     }
 
     private void pickFromCamer(){
-
+        //intent to pick image from camera, the image will be returned in onActivityResult method
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "Image title");
         values.put(MediaStore.Images.Media.DESCRIPTION, "Image title");
 
+        //put image uri
         imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,values);
 
+        //intent to open camera for image
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA_CODE);
     }
 
     private void pickFromGallery(){
+        //intent to pick image from gallery, the image will be returned in onActivity result method
         Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
+        intent.setType("image/*");//we want only images
         startActivityForResult(intent, IMAGE_PICK_GALLERY_CODE );
     }
 
@@ -283,12 +291,14 @@ public class UserProfile extends AppCompatActivity {
     }
 
     private void requeststoragepermission(){
+        //request storage permission
         ActivityCompat.requestPermissions(this,
                 storagePermission,STORAGE_REQUEST_CODE);
 
     }
 
     private boolean checkcamerapeemission(){
+        //check if camera permission  is enable or not
         boolean result = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CAMERA)==(PackageManager.PERMISSION_GRANTED);
         boolean result1 = ContextCompat.checkSelfPermission(this,
@@ -299,6 +309,7 @@ public class UserProfile extends AppCompatActivity {
     }
 
     private void requestCamerapermission(){
+        //request the camera permission
         ActivityCompat.requestPermissions(this,cameraPermission,CAMERA_REQUEST_CODE);
 
     }
@@ -310,10 +321,12 @@ public class UserProfile extends AppCompatActivity {
         switch (requestCode){
             case CAMERA_REQUEST_CODE:{
                 if(grantResults.length>0){
+                    //if allowed returns true otherwise false
                     boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                     boolean storageAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
 
                     if(cameraAccepted && storageAccepted){
+                        //both permission allowed
                         pickFromCamer();
                     }
                     else{
@@ -326,6 +339,7 @@ public class UserProfile extends AppCompatActivity {
             break;
             case STORAGE_REQUEST_CODE:{
                 if(grantResults.length>0){
+                    //if allowed return true otherwise false
                     boolean storageAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
 
                     if(storageAccepted){
@@ -346,8 +360,11 @@ public class UserProfile extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+       //image picked from camera or gallery will be received here
         if (resultCode == RESULT_OK){
+            //image is picked
             if (requestCode == IMAGE_PICK_GALLERY_CODE){
+                //picked from gallery
                 CropImage.activity(data.getData())
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .setAspectRatio(1,1)
@@ -358,15 +375,18 @@ public class UserProfile extends AppCompatActivity {
                         .setAspectRatio(1,1)
                         .start(this);
             }else if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
+                //cropped image received
                 CropImage.ActivityResult result = CropImage.getActivityResult(data);
                 if(resultCode == RESULT_OK){
                     Uri resultUri = result.getUri();
 
+                    //set image
                     imageUri = resultUri;
 
                     userProfilePic.setImageURI(resultUri);
                 }
                 else if(resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
+                    //error
                     Exception error = result.getError();
                     Toast.makeText(this, "" + error, Toast.LENGTH_SHORT).show();
 
