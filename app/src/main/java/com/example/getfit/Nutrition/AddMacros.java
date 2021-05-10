@@ -53,12 +53,12 @@ public class AddMacros extends AppCompatActivity {
 
                 boolean isInputsEmpty = input_energy.isEmpty() || input_fat.isEmpty() || input_carb.isEmpty() || input_fiber.isEmpty() || input_protein.isEmpty() || input_sodium.isEmpty() || input_cholesterol.isEmpty() || input_potasium.isEmpty() || input_calories.isEmpty();
 
-                String nameVal = "[a-zA-Z ]+";;
+                String namePattern = "[a-zA-Z ]+";;
 
                 if(input_foodName.isEmpty()){
                     title_foodName.requestFocus();
                     title_foodName.setError("Field cannot be empty");
-                }else if(!input_foodName.matches(nameVal)){
+                }else if(!input_foodName.matches(namePattern)){
                     title_foodName.requestFocus();
                     title_foodName.setError("invalid characters!");
                 }else if(isInputsEmpty == true){

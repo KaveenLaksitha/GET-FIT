@@ -57,6 +57,7 @@ public class UpdateMeal extends AppCompatActivity {
 
                     if (cursor.moveToFirst()) {
 
+                        mealName.setText(cursor.getString(1));
                         bm01.setText(cursor.getString(2));
                         bm02.setText(cursor.getString(3));
                         bm03.setText(cursor.getString(4));

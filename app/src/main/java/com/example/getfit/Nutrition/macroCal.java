@@ -59,7 +59,6 @@ public class macroCal extends AppCompatActivity {
                 servings = Float.valueOf(numInServSize.getText().toString().trim());
                 Log.d("inputed string", foodName);
                 dbHelper = new DBHelper(getApplicationContext());
-                SQLiteDatabase db = dbHelper.getReadableDatabase();
                 Cursor cursor = dbHelper.SearchMacro(foodName);
                 if(cursor.moveToFirst())
                 {
@@ -133,9 +132,10 @@ public class macroCal extends AppCompatActivity {
         });
     }
 
+    //calculate values and return
     public float getCalories(float value, float servings){
 
-        return (float) value / 150 * servings;
+        return (value / 150) * servings;
     }
 
 
