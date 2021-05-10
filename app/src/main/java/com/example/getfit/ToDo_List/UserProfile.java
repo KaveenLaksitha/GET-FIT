@@ -39,6 +39,7 @@ public class UserProfile extends AppCompatActivity {
     CircularImageView userProfilePic;
     Button UPbtnUpdate, UPtxtDelete;
 
+    //bottom navigation button pannel
     Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
 
 
@@ -50,6 +51,9 @@ public class UserProfile extends AppCompatActivity {
     String userimage;
 
     String viewimageuser;
+
+    //variable (will contains data to save)
+    private Uri imageUri;
 
     //permission constants
     private static final int CAMERA_REQUEST_CODE = 100;
@@ -63,8 +67,6 @@ public class UserProfile extends AppCompatActivity {
     private String[] cameraPermission;//camera and storage
     private String[] storagePermission;//only storage
 
-    //variable (will contains data to save)
-    private Uri imageUri;
 
     UserManagementDBHelper userManagementDBHelper;
 
@@ -82,17 +84,15 @@ public class UserProfile extends AppCompatActivity {
         SignUpHeight = findViewById(R.id.SignUpHeight);
         SignUpWeight = findViewById(R.id.SignUpWeight);
         SignUpAge = findViewById(R.id.SignUpAge);
+        UPbtnUpdate = findViewById(R.id.UPbtnUpdate);
+        UPtxtDelete = findViewById(R.id.UPtxtDelete);
+        userProfilePic = findViewById(R.id.userProfilePic);
 
+        //bottom navigation button
         navigate_todo = findViewById(R.id.navigate_todo);
         navigate_workout = findViewById(R.id.navigate_workout);
         navigate_nutrition = findViewById(R.id.navigate_nutrition);
         navigate_supplement = findViewById(R.id.navigate_supplement);
-
-
-        UPbtnUpdate = findViewById(R.id.UPbtnUpdate);
-        UPtxtDelete = findViewById(R.id.UPtxtDelete);
-
-        userProfilePic = findViewById(R.id.userProfilePic);
 
 
         userManagementDBHelper = new UserManagementDBHelper(getApplicationContext());
@@ -128,6 +128,7 @@ public class UserProfile extends AppCompatActivity {
             userProfilePic.setImageURI(Uri.parse(cursor1.getString(1)));
         }
 
+        //click to update button to update data
         UPbtnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -380,7 +381,7 @@ public class UserProfile extends AppCompatActivity {
     void confirmDeleteAccountBox(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete " + user + " ?");
-        builder.setMessage("Are you sure you want to delete " + user + "Account ?");
+        builder.setMessage("Are you sure you want to delete " + user + " Account ?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

@@ -46,51 +46,51 @@ public class SignUp extends AppCompatActivity {
                 String pass = password.getText().toString();
                 String gen = gender.getText().toString();
 
-                if(user.equals("") || ema.equals("") || pass.equals("") || gen.equals("")){
-                    username.requestFocus();
-                    username.setError("Field cannot be empty");
-                    email.requestFocus();
-                    email.setError("Field cannot be empty");
-                    password.requestFocus();
-                    password.setError("Field cannot be empty");
-                    gender.requestFocus();
-                    gender.setError("Field cannot be empty");
-                    height.requestFocus();
-                    height.setError("Field cannot be empty");
-                    weight.requestFocus();
-                    weight.setError("Field cannot be empty");
-                    age.requestFocus();
-                    age.setError("Field cannot be empty");
+                boolean checkInput = user.isEmpty() || ema.isEmpty() || pass.isEmpty() || gen.isEmpty();
 
-                }else{
-                    if(pass.equals((pass))){
+                if(checkInput == true){
+
+                    Toast.makeText(getApplicationContext(),"please fill all the fields!",Toast.LENGTH_SHORT).show();
+
+                }else if(pass.equals((pass))){
                         Boolean checkuser = userManagementDBHelper.checkusername(user);
                         if(checkuser == false){
                             float heit = Float.valueOf(height.getText().toString());
                             float weit = Float.valueOf(weight.getText().toString());
                             int agt = Integer.valueOf(age.getText().toString());
-                            Boolean insert = userManagementDBHelper.insertData(user,ema,pass,gen,heit,weit,agt);
-                            if(insert == true){
-                                Toast.makeText(SignUp.this, "Welcome to the GET FIT", Toast.LENGTH_SHORT).show();
+                            //int value = ema.indexOf("@");
 
-                                Intent intent = new Intent(getApplicationContext(), BMI.class);
-                                intent.putExtra("height",height.getText().toString());
-                                intent.putExtra("weight",weight.getText().toString());
-                                intent.putExtra("age",age.getText().toString());
+                            String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-                                intent.putExtra("username",user);
-
-                                startActivity(intent);
+                            if(!ema.matches(emailPattern)){
+                                email.requestFocus();
+                                email.setError("invalid email!");
                             }else{
+                                Boolean insert = userManagementDBHelper.insertData(user,ema,pass,gen,heit,weit,agt);
+                                if(insert == true){
+                                    Toast.makeText(SignUp.this, "Welcome to the GET FIT", Toast.LENGTH_SHORT).show();
 
-                                Toast.makeText(SignUp.this, "Failed to Register", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), BMI.class);
+                                    intent.putExtra("height",height.getText().toString());
+                                    intent.putExtra("weight",weight.getText().toString());
+                                    intent.putExtra("age",age.getText().toString());
+
+                                    intent.putExtra("username",user);
+
+                                    startActivity(intent);
+                                }else{
+
+                                    Toast.makeText(SignUp.this, "Failed to Register", Toast.LENGTH_SHORT).show();
+                                }
+
                             }
+
                         }else{
 
                             Toast.makeText(SignUp.this, "You are Already exists! Please sign in", Toast.LENGTH_SHORT).show();
                         }
                     }
-                }
+
 
             }
         });

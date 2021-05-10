@@ -7,20 +7,23 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
+//Database helper class that contain all crud methods
 public class UserManagementDBHelper extends SQLiteOpenHelper {
 
     private Context context;
 
+    //database name
     private static final String DATABASE_NAME = "GETFIT.db";
+    //database version
     private static final int DATABASE_VERSION = 1;
 
-    //To do list data base
+    //To do list data base column
     private static final String TABLE_NAME = "TodoList";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_TITLE = "list_name";
     private static final String COLUMN_DESCRIPTION = "list_description";
 
-    //Sign Up page data base
+    //Sign Up page data base column
     private static final String TABLE_NAME_USER = "User";
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_EMAIL = "email";
@@ -30,7 +33,7 @@ public class UserManagementDBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_WEIGHT = "weight";
     private static final String COLUMN_AGE = "age";
 
-    //image upload data base
+    //image upload data base column
     private static final String TABLE_NAME_IMAGE = "ImageUpload";
     private static final String COLUMN_USERNAMEIMAGE = "username";
     private static final String COLUMN_IMAGE = " image";
@@ -47,14 +50,14 @@ public class UserManagementDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        //create To do list table
+        //create To do list table query
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                        COLUMN_TITLE + " TEXT," +
                        COLUMN_DESCRIPTION + " TEXT);";
         db.execSQL(query);
 
-        //create user table
+        //create user table query
         String USER_QUERY = " CREATE TABLE " + TABLE_NAME_USER +
                 " (" + COLUMN_USERNAME + " TEXT PRIMARY KEY," +
                        COLUMN_EMAIL + " TEXT," +
@@ -66,7 +69,7 @@ public class UserManagementDBHelper extends SQLiteOpenHelper {
 
          db.execSQL(USER_QUERY);
 
-         //create upload image data base
+         //create upload image data base query
         String queryImage = " CREATE TABLE " + TABLE_NAME_IMAGE +
                 " (" + COLUMN_USERNAMEIMAGE + " TEXT PRIMARY KEY," +
                        COLUMN_IMAGE + " TEXT);";
@@ -77,9 +80,11 @@ public class UserManagementDBHelper extends SQLiteOpenHelper {
     //upgrading the data base when we make changes to the schema
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        //drop older table if exists
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_USER);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_IMAGE);
+        //create table again
         onCreate(db);
 
     }
@@ -243,12 +248,16 @@ public class UserManagementDBHelper extends SQLiteOpenHelper {
 
     //Insert -> insert image into data base
     public boolean insertimage(String username, String image){
+
+        //get writeable database because we want to write data
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
+        //insert data
         values.put(COLUMN_USERNAMEIMAGE,username);
         values.put(COLUMN_IMAGE,image);
 
+        //insert row, it will return username of saved data
         long result = db.insert(TABLE_NAME_IMAGE,null,values);
 
         if(result == -1){
@@ -268,7 +277,7 @@ public class UserManagementDBHelper extends SQLiteOpenHelper {
         if (db != null) {
             cursor = db.rawQuery(imageretirveQUERY, null);
         }if(cursor.getCount() == 0){
-            //Toast.makeText(context,"",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"No profile picture",Toast.LENGTH_SHORT).show();
         }
         return cursor;
     }

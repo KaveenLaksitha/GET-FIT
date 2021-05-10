@@ -66,6 +66,7 @@ public class To_Do_List extends AppCompatActivity {
 
         no_data = findViewById(R.id.no_data);
 
+        //click to start add record activity
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
