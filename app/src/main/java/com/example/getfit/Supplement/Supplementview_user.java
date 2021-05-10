@@ -12,10 +12,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.getfit.Nutrition.ViewMeals;
 import com.example.getfit.R;
+import com.example.getfit.ToDo_List.To_Do_List;
+import com.example.getfit.Workout.WorkOuts;
 
 import java.util.ArrayList;
 
@@ -24,6 +28,7 @@ public class Supplementview_user extends AppCompatActivity {
     ArrayList<String> sup_id,sup_name, sup_price, sup_description;
     SupplementAdapter customAdapter;
     RecyclerView recycler;
+    Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
 
     MyDatabaseHelper myDB;
 
@@ -48,6 +53,60 @@ public class Supplementview_user extends AppCompatActivity {
         customAdapter = new SupplementAdapter(Supplementview_user.this, this,sup_id, sup_name, sup_price, sup_description);
         recycler.setAdapter(customAdapter);
         recycler.setLayoutManager(new LinearLayoutManager(Supplementview_user.this));
+
+
+
+        //bottom navigation bar
+        navigate_todo = findViewById(R.id.navigate_todo);
+        navigate_workout = findViewById(R.id.navigate_workout);
+        navigate_nutrition = findViewById(R.id.navigate_nutrition);
+        navigate_supplement = findViewById(R.id.navigate_supplement);
+
+        //redirects to todoList
+        navigate_todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Supplementview_user.this, To_Do_List.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to workout
+        navigate_workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Supplementview_user.this, WorkOuts.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to meal list
+        navigate_nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Supplementview_user.this, ViewMeals.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //redirects to supplement list
+        navigate_supplement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Supplementview_user.this, ViewSupplement.class);
+                startActivity(intent);
+
+            }
+        });
+
+
 
 
     }

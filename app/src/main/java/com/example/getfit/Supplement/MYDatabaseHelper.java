@@ -44,15 +44,17 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    //create new method
     public void addSupplement(String name, String price, String description, String image) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(COLUMN_NAME, name);
+        cv.put(COLUMN_NAME, name); //adds a value to the set
         cv.put(COLUMN_PRICE, price);
         cv.put(COLUMN_DESCRIPTION, description);
         cv.put(COLUMN_IMAGE, image);
 
+        //insert data
         long result = db.insert(TABLE_NAME, null, cv);
         if (result == -1) {
             Toast.makeText(context, "Data cannot be inserted!", Toast.LENGTH_SHORT).show();
@@ -60,7 +62,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
         }
     }
-
+    //readall Data from the database
     public Cursor readAllData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -79,6 +81,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_PRICE, price);
         cv.put(COLUMN_DESCRIPTION, description);
 
+        //update data
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();

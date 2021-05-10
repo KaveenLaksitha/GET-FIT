@@ -58,9 +58,8 @@ public class AddSupplement extends AppCompatActivity {
         price_input = findViewById(R.id.price_input);
         description_input = findViewById(R.id.description_input);
         supImage = findViewById(R.id.supImage);
-
-
         add_button = findViewById(R.id.add_button);
+        //call our methods using MyDatabaseHelper class
         myDB = new MyDatabaseHelper(this);
 
         //init permission array
@@ -118,16 +117,19 @@ public class AddSupplement extends AppCompatActivity {
 
 
     private  void imagePickDialog(){
+        //options to display in dialog
         String[] options = {"Camera" , "Gallery"};
-
+        //dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
+        //title
         builder.setTitle("Pick Image From");
-
+        //set items/options
         builder.setItems(options, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                //handle clicks
                 if (which == 0){
+                    //camera clicked
                     if(!checkcamerapeemission()){
                         requestCamerapermission();
                     }else{
@@ -159,8 +161,11 @@ public class AddSupplement extends AppCompatActivity {
         values.put(MediaStore.Images.Media.TITLE, "Image title");
         values.put(MediaStore.Images.Media.DESCRIPTION, "Image title");
 
+        //put image uri
         supImageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,values);
 
+
+        //intent to open camera from image
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, supImageUri);
         startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA_CODE);
@@ -168,7 +173,7 @@ public class AddSupplement extends AppCompatActivity {
 
     private void pickFromGallery(){
         Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
+        intent.setType("image/*"); //we want only images
         startActivityForResult(intent, IMAGE_PICK_GALLERY_CODE );
     }
 
@@ -180,12 +185,14 @@ public class AddSupplement extends AppCompatActivity {
     }
 
     private void requeststoragepermission(){
+        //request the storage permission
         ActivityCompat.requestPermissions(this,
                 storagePermission,STORAGE_REQUEST_CODE);
 
     }
 
     private boolean checkcamerapeemission(){
+        //check if camera permission is enabled or not
         boolean result = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CAMERA)==(PackageManager.PERMISSION_GRANTED);
         boolean result1 = ContextCompat.checkSelfPermission(this,
@@ -196,6 +203,7 @@ public class AddSupplement extends AppCompatActivity {
     }
 
     private void requestCamerapermission(){
+        //request the camera permissions
         ActivityCompat.requestPermissions(this,cameraPermission,CAMERA_REQUEST_CODE);
 
     }
@@ -204,13 +212,16 @@ public class AddSupplement extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         //result of permission allowed/denied
+
         switch (requestCode){
             case CAMERA_REQUEST_CODE:{
+                //if allowed returns true otherwise false
                 if(grantResults.length>0){
                     boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                     boolean storageAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
 
                     if(cameraAccepted && storageAccepted){
+                        //both permission allowed
                         pickFromCamer();
                     }
                     else{
@@ -250,20 +261,25 @@ public class AddSupplement extends AppCompatActivity {
                         .setAspectRatio(1,1)
                         .start(this);
             }else if (requestCode == IMAGE_PICK_GALLERY_CODE){
+
+                //crop image
                 CropImage.activity(data.getData())
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .setAspectRatio(1,1)
                         .start(this);
+
             }else if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
                 CropImage.ActivityResult result = CropImage.getActivityResult(data);
                 if(resultCode == RESULT_OK){
+
                     Uri resultUri = result.getUri();
 
                     supImageUri = resultUri;
-
+                    //set image
                     supImage.setImageURI(resultUri);
                 }
                 else if(resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
+                    //error
                     Exception error = result.getError();
                     Toast.makeText(this, "" + error, Toast.LENGTH_SHORT).show();
 

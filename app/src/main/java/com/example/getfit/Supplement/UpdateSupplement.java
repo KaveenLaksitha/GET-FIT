@@ -37,10 +37,10 @@ public class UpdateSupplement extends AppCompatActivity {
         update_button = findViewById(R.id.update_button);
         delete_button = findViewById(R.id.delete_button);
 
-        //First we call this
+        //First we call this method
         getAndSetIntentData();
 
-        //setActionBar name
+        //setActionBar name after getAndSetIntentData method
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
 
@@ -110,7 +110,7 @@ public class UpdateSupplement extends AppCompatActivity {
 
             }
         });
-        builder.create().show();
+        builder.create().show();//show our allow dialog
 
     }
 

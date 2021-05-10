@@ -77,6 +77,8 @@
 
     </LinearLayout>
 
+
+
     <Button
         android:id="@+id/btnres"
         android:layout_width="166dp"
@@ -120,6 +122,7 @@
         android:textSize="25sp"
         android:textStyle="bold"></Button>
 
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="412dp"
@@ -128,7 +131,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/btn"
+            android:id="@+id/navigate_todo"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_weight="1"
@@ -137,7 +140,7 @@
             app:cornerRadius="0dp" />
 
         <Button
-            android:id="@+id/btn5"
+            android:id="@+id/navigate_workout"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_weight="1"
@@ -146,7 +149,7 @@
             app:cornerRadius="0dp" />
 
         <Button
-            android:id="@+id/btn6"
+            android:id="@+id/navigate_nutrition"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_weight="1"
@@ -155,7 +158,7 @@
             app:cornerRadius="0dp" />
 
         <Button
-            android:id="@+id/btn11"
+            android:id="@+id/navigate_supplement"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_weight="1"

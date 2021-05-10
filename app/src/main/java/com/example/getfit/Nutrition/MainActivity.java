@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.getfit.R;
 import com.example.getfit.Supplement.BMICalculator;
+import com.example.getfit.Supplement.SupplementDetailsView;
+import com.example.getfit.Supplement.Supplementview_user;
 import com.example.getfit.Supplement.ViewSupplement;
 import com.example.getfit.ToDo_List.To_Do_List;
 import com.example.getfit.ToDo_List.UserProfile;
@@ -162,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, ViewSupplement.class);
+                Intent intent = new Intent(MainActivity.this, Supplementview_user.class);
                 startActivity(intent);
 
             }

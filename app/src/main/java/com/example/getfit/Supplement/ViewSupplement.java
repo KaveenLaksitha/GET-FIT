@@ -33,6 +33,7 @@ public class ViewSupplement extends AppCompatActivity {
     CustomAdapter customAdapter;
     RecyclerView recycler;
 
+
     MyDatabaseHelper myDB;
 
 
@@ -53,7 +54,7 @@ public class ViewSupplement extends AppCompatActivity {
         });
 
         myDB = new MyDatabaseHelper(ViewSupplement.this);
-
+        //initialize arraylists
         sup_id = new ArrayList<>();
         sup_name = new ArrayList<>();
         sup_price = new ArrayList<>();
@@ -64,6 +65,9 @@ public class ViewSupplement extends AppCompatActivity {
         customAdapter = new CustomAdapter(ViewSupplement.this, this,sup_id, sup_name, sup_price, sup_description);
         recycler.setAdapter(customAdapter);
         recycler.setLayoutManager(new LinearLayoutManager(ViewSupplement.this));
+
+
+
 
 
     }
@@ -82,7 +86,8 @@ public class ViewSupplement extends AppCompatActivity {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         }else {
             while (cursor.moveToNext()){
-                sup_id.add(cursor.getString(0));
+                //read all the data from our cursor
+                sup_id.add(cursor.getString(0));//read first column
                 sup_name.add(cursor.getString(1));
                 sup_price.add(cursor.getString(2));
                 sup_description.add(cursor.getString(3));

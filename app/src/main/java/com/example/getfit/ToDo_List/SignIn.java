@@ -62,6 +62,8 @@ public class SignIn extends AppCompatActivity {
 
                         Toast.makeText(SignIn.this, "Login to the GET FIT", Toast.LENGTH_SHORT).show();
 
+                        checkCredential(user,pass);
+/*
                         if((user.equals(work_username) && (pass.equals(work_password) ))){
                             Intent intent = new Intent(getApplicationContext(), WorkoutDashBoard.class);
                             startActivity(intent);
@@ -78,8 +80,10 @@ public class SignIn extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.putExtra("username",user);
                             startActivity(intent);
-                        }
-                    }else{
+                        }*/
+                    }
+                    else{
+
                         Toast.makeText(SignIn.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -96,5 +100,34 @@ public class SignIn extends AppCompatActivity {
         });
 
 
+    }
+
+    boolean checkCredential(String user, String pass){
+
+        if((user.equals("hasani") && (pass.equals("hasani") ))){
+            /*Intent intent = new Intent(getApplicationContext(), WorkoutDashBoard.class);
+            startActivity(intent);*/
+
+            return true;
+        }
+        else if((user.equals("kaveen") && (pass.equals("kaveen") ))){
+            Intent intent = new Intent(getApplicationContext(), NutritionNavigate.class);
+            startActivity(intent);
+
+            return true;
+        }
+        else if((user.equals("nalini") && (pass.equals("nalini") ))){
+            Intent intent = new Intent(getApplicationContext(), SupDashboard.class);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtra("username",user);
+            startActivity(intent);
+
+            return true;
+        }
+
+        return false;
     }
 }

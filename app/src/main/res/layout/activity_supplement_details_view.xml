@@ -23,13 +23,12 @@
             android:id="@+id/supDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="114dp"
-            android:layout_marginEnd="116dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="76dp"
             android:text="description"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.573"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -80,7 +79,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/btn"
+            android:id="@+id/navigate_todo"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_weight="1"
@@ -89,7 +88,7 @@
             app:cornerRadius="0dp" />
 
         <Button
-            android:id="@+id/btn5"
+            android:id="@+id/navigate_workout"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_weight="1"
@@ -98,7 +97,7 @@
             app:cornerRadius="0dp" />
 
         <Button
-            android:id="@+id/btn6"
+            android:id="@+id/navigate_nutrition"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_weight="1"
@@ -107,7 +106,7 @@
             app:cornerRadius="0dp" />
 
         <Button
-            android:id="@+id/btn11"
+            android:id="@+id/navigate_supplement"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_weight="1"

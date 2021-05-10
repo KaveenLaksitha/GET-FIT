@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
-    private Context context;
+    private Context context;//create constructor
     private Activity activity;
     private ArrayList sup_id, sup_name, sup_price, sup_description;
 
@@ -31,6 +31,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                   ArrayList sup_name, ArrayList sup_price,
                   ArrayList sup_description){
 
+        //set values to our variables
         this.activity = activity;
         this.context = context;
         this.sup_id = sup_id;
@@ -92,6 +93,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            //get the id for text views
             sup_id_txt = itemView.findViewById(R.id.sup_id_txt);
 
             sup_name_txt = itemView.findViewById(R.id.Sup_Name_txt);

@@ -15,12 +15,20 @@
         android:theme="@style/Theme.GETFIT">
         <activity android:name=".SplashScreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+
         <activity android:name=".Supplement.SupplementDetailsView"></activity>
         <activity android:name=".Supplement.Supplementview_user">
+
+
+        </activity>
+
+
 
         <!-- Start of ToDO List -->
         <activity
@@ -29,11 +37,7 @@
         <activity
             android:name=".ToDo_List.SignIn"
             android:label="Sign In">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ToDo_List.Add_ToDo"
@@ -52,15 +56,10 @@
         <activity
             android:name=".ToDo_List.SignUp"
             android:label="Sign Up">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+
+
         </activity>
-        <activity
-            android:name=".Supplement.UpdateSupplement"
-            android:label="Sign Up" />
         <activity
             android:name=".Supplement.UpdateSupplement"
             android:label="Update Supplement"
@@ -71,29 +70,35 @@
         <activity
             android:name=".Supplement.ViewSupplement"
             android:label="View Supplement"
-            android:parentActivityName=".Supplement.SupDashboard" />
+            android:parentActivityName=".Supplement.SupDashboard"/>
+
+
+
+
         <activity
             android:name=".Supplement.BMICalculator"
             android:label="BMI Calculator"
-            android:parentActivityName=".Nutrition.MainActivity" />
-        <activity android:name=".Supplement.SupDashboard" />
+            android:parentActivityName=".Nutrition.MainActivity" >
+
+
+
+
+
+        </activity>
+
+        <activity android:name=".Supplement.SupDashboard" >
+
+        </activity>
         <activity
             android:name=".Supplement.AddSupplement"
             android:label="Add Supplement"
             android:parentActivityName=".Supplement.SupDashboard" />
+
+
+
         <!-- End of Supplement management -->
 
         <!-- Start of Nutrition management -->
-        <activity
-            android:name=".Workout.ViewExerciseImage"
-            android:parentActivityName=".Nutrition.MainActivity" >
-
-        </activity>
-        <activity android:name=".Nutrition.DeletePopUp" />
-        <activity
-            android:name=".Nutrition.macroCal"
-            android:label="Macro Finder"
-            android:parentActivityName=".Nutrition.MainActivity" />
         <activity
             android:name=".Workout.ViewExerciseImage"
             android:label="WorkOut Image"
