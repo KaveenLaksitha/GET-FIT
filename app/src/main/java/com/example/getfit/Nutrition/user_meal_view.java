@@ -18,7 +18,7 @@ import com.example.getfit.Workout.WorkOuts;
 
 public class user_meal_view extends AppCompatActivity {
 
-    TextView um_bm01,um_bm02,um_bm03,um_bm04,um_lm01,um_lm02,um_lm03,um_lm04,um_dm01,um_dm02,um_dm03,um_dm04;
+    TextView um_meal_header,um_bm01,um_bm02,um_bm03,um_bm04,um_lm01,um_lm02,um_lm03,um_lm04,um_dm01,um_dm02,um_dm03,um_dm04;
     Button navigate_todo,navigate_workout,navigate_nutrition,navigate_supplement;
     DBHelper dbHelper;
 
@@ -36,6 +36,8 @@ public class user_meal_view extends AppCompatActivity {
         navigate_workout = findViewById(R.id.navigate_workout);
         navigate_nutrition = findViewById(R.id.navigate_nutrition);
         navigate_supplement = findViewById(R.id.navigate_supplement);
+
+        um_meal_header = findViewById(R.id.um_meal_header);
 
         um_bm01 = findViewById(R.id.um_bm01);
         um_bm02= findViewById(R.id.um_bm02);
@@ -55,6 +57,7 @@ public class user_meal_view extends AppCompatActivity {
 
         if(cursor.moveToFirst()){
 
+            um_meal_header.setText(cursor.getString(1));
             um_bm01.setText(cursor.getString(2));
             um_bm02.setText(cursor.getString(3));
             um_bm03.setText(cursor.getString(4));

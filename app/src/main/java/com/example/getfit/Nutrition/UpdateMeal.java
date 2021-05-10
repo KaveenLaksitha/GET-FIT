@@ -57,6 +57,7 @@ public class UpdateMeal extends AppCompatActivity {
 
                     if (cursor.moveToFirst()) {
 
+                        mealName.setText(cursor.getString(1));
                         bm01.setText(cursor.getString(2));
                         bm02.setText(cursor.getString(3));
                         bm03.setText(cursor.getString(4));
@@ -113,9 +114,9 @@ public class UpdateMeal extends AppCompatActivity {
                             lm03.getText().toString().trim(),
                             lm04.getText().toString().trim(),
                             dm01.getText().toString().trim(),
-                            dm01.getText().toString().trim(),
-                            dm01.getText().toString().trim(),
-                            dm01.getText().toString().trim());
+                            dm02.getText().toString().trim(),
+                            dm03.getText().toString().trim(),
+                            dm04.getText().toString().trim());
 
 
                     Intent intent = new Intent(UpdateMeal.this, MealList.class);
